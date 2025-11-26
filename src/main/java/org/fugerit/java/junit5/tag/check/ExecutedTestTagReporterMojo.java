@@ -253,9 +253,9 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
         String line = repeatString("-", 80);
 
         try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write(separator + "%n");
-            writer.write("EXECUTED TEST TAG REPORT%n");
-            writer.write(separator + "%n%n");
+            writer.write(separator + "\n");
+            writer.write("EXECUTED TEST TAG REPORT\n");
+            writer.write(separator + "\n\n");
 
             int totalTests = testTagMap.size();
 
@@ -269,8 +269,8 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
             int skippedTests = (int) testTagMap.keySet().stream()
                     .filter(ExecutedTest::isSkipped).count();
 
-            writer.write("EXECUTION SUMMARY:%n");
-            writer.write(line + "%n");
+            writer.write("EXECUTION SUMMARY:\n");
+            writer.write(line + "\n");
             writer.write(String.format("  Total Tests:    %d%n", totalTests));
             writer.write(String.format("  Passed:         %d%n", passedTests));
             writer.write(String.format("  Failed:         %d%n", failedTests));
@@ -278,7 +278,7 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
             if (includeSkipped) {
                 writer.write(String.format("  Skipped:        %d%n", skippedTests));
             }
-            writer.write("%n");
+            writer.write("\n");
 
             // Summary by tag (Java 8 compatible map operations: computeIfAbsent is fine)
             Map<String, List<ExecutedTest>> tagToTests = new HashMap<>();
@@ -297,11 +297,11 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                 }
             }
 
-            writer.write("SUMMARY BY TAG:%n");
-            writer.write(line + "%n");
+            writer.write("SUMMARY BY TAG:\n");
+            writer.write(line + "\n");
             writer.write(String.format("%-20s | %5s | %5s | %5s | %5s%n",
                     "Tag", "Total", "Pass", "Fail", "Error"));
-            writer.write(line + "%n");
+            writer.write(line + "\n");
 
             for (Map.Entry<String, TestStats> entry : tagStats.entrySet()) {
                 TestStats stats = entry.getValue();
@@ -320,14 +320,14 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                         "<NO TAG>", testsWithoutTags, "?", "?", "?"));
             }
 
-            writer.write("%n" + separator + "%n");
-            writer.write("EXECUTED TESTS BY TAG:%n");
-            writer.write(separator + "%n%n");
+            writer.write("\n" + separator + "\n");
+            writer.write("EXECUTED TESTS BY TAG:\n");
+            writer.write(separator + "\n\n");
 
             for (Map.Entry<String, List<ExecutedTest>> entry : tagToTests.entrySet()) {
                 writer.write(String.format("Tag: %s (%d tests)%n",
                         entry.getKey(), entry.getValue().size()));
-                writer.write(line + "%n");
+                writer.write(line + "\n");
                 for (ExecutedTest test : entry.getValue()) {
                     String status = getStatusIcon(test);
                     writer.write(String.format("  %s %s#%s (%.3fs)%n",
@@ -336,12 +336,12 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                             test.getMethodName(),
                             Double.parseDouble(test.getTime())));
                 }
-                writer.write("%n");
+                writer.write("\n");
             }
 
-            writer.write("%n" + separator + "%n");
-            writer.write("ALL EXECUTED TESTS WITH TAGS:%n");
-            writer.write(separator + "%n%n");
+            writer.write("\n" + separator + "\n");
+            writer.write("ALL EXECUTED TESTS WITH TAGS:\n");
+            writer.write(separator + "\n\n");
 
             for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
                 ExecutedTest test = entry.getKey();
@@ -359,10 +359,10 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
             }
 
             if (testsWithoutTags > 0) {
-                writer.write("%n" + separator + "%n");
+                writer.write("%n" + separator + "\n");
                 writer.write("⚠️  WARNING: " + testsWithoutTags +
-                        " executed tests without tags%n");
-                writer.write(separator + "%n");
+                        " executed tests without tags\n");
+                writer.write(separator + "\n");
             }
         }
     }
@@ -463,38 +463,38 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
     private void generateJsonReport(Map<ExecutedTest, Set<String>> testTagMap)
             throws IOException {
         try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("{%n");
-            writer.write("  \"executedTests\": [%n");
+            writer.write("{\n");
+            writer.write("  \"executedTests\": [\n");
 
             int count = 0;
             for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-                if (count++ > 0) writer.write(",%n");
+                if (count++ > 0) writer.write(",\n");
                 ExecutedTest test = entry.getKey();
-                writer.write("    {%n");
-                writer.write("      \"class\": \"" + escapeJson(test.getClassName()) + "\",%n");
-                writer.write("      \"method\": \"" + escapeJson(test.getMethodName()) + "\",%n");
-                writer.write("      \"time\": " + test.getTime() + ",%n");
-                writer.write("      \"skipped\": " + test.isSkipped() + ",%n");
-                writer.write("      \"failed\": " + test.isFailed() + ",%n");
-                writer.write("      \"error\": " + test.isError() + ",%n");
+                writer.write("    {\n");
+                writer.write("      \"class\": \"" + escapeJson(test.getClassName()) + "\",\n");
+                writer.write("      \"method\": \"" + escapeJson(test.getMethodName()) + "\",\n");
+                writer.write("      \"time\": " + test.getTime() + ",\n");
+                writer.write("      \"skipped\": " + test.isSkipped() + ",\n");
+                writer.write("      \"failed\": " + test.isFailed() + ",\n");
+                writer.write("      \"error\": " + test.isError() + ",\n");
                 writer.write("      \"tags\": [");
                 writer.write(entry.getValue().stream()
                         .map(tag -> "\"" + escapeJson(tag) + "\"")
                         .collect(Collectors.joining(", ")));
-                writer.write("]%n");
+                writer.write("]\n");
                 writer.write("    }");
             }
 
-            writer.write("%n  ]%n");
-            writer.write("}%n");
+            writer.write("\n  ]\n");
+            writer.write("}");
         }
     }
 
     private void generateXmlReport(Map<ExecutedTest, Set<String>> testTagMap)
             throws IOException {
         try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>%n");
-            writer.write("<executedTestTagReport>%n");
+            writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+            writer.write("<executedTestTagReport>\n");
 
             for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
                 ExecutedTest test = entry.getKey();
@@ -503,14 +503,14 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                 writer.write("time=\"" + test.getTime() + "\" ");
                 writer.write("skipped=\"" + test.isSkipped() + "\" ");
                 writer.write("failed=\"" + test.isFailed() + "\" ");
-                writer.write("error=\"" + test.isError() + "\">%n");
+                writer.write("error=\"" + test.isError() + "\">\n");
                 for (String tag : entry.getValue()) {
-                    writer.write("    <tag>" + escapeXml(tag) + "</tag>%n");
+                    writer.write("    <tag>" + escapeXml(tag) + "</tag>\n");
                 }
-                writer.write("  </test>%n");
+                writer.write("  </test>\n");
             }
 
-            writer.write("</executedTestTagReport>%n");
+            writer.write("</executedTestTagReport>\n");
         }
     }
 
