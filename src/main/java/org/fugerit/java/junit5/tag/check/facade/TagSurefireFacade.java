@@ -7,6 +7,7 @@ import org.dom4j.io.SAXReader;
 import org.fugerit.java.junit5.tag.check.model.ExecutedTest;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class TagSurefireFacade {
                             skipped,
                             failed,
                             error,
-                            time
+                            new BigDecimal(time)
                     );
 
                     if (!skipped || includeSkipped) {

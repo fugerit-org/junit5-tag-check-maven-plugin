@@ -1,6 +1,10 @@
 package org.fugerit.java.junit5.tag.check.facade;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
+import org.fugerit.java.doc.base.config.DocConfig;
 import org.fugerit.java.junit5.tag.check.model.ExecutedTest;
+import org.fugerit.java.junit5.tag.check.model.ReportModel;
 import org.fugerit.java.junit5.tag.check.model.TestStats;
 
 import java.io.File;
@@ -9,6 +13,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Slf4j
 public class TagReportFacade {
 
     public static void generateReport(String format, boolean includeSkipped, File outputFile, Map<ExecutedTest, Set<String>> testTagMap)
@@ -33,9 +38,10 @@ public class TagReportFacade {
             throws IOException {
         outputFile.getParentFile().mkdirs();
 
+        ReportModel model = this.toReportModel(testTagMap);
         switch (format.toLowerCase()) {
-            case "json":
-                generateJsonReport(testTagMap);
+            case DocConfig.TYPE_JSON:
+                generateJsonReport(model);
                 break;
             case "xml":
                 generateXmlReport(testTagMap);
@@ -46,6 +52,17 @@ public class TagReportFacade {
             default:
                 generateTextReport(testTagMap);
         }
+    }
+
+    private ReportModel toReportModel(Map<ExecutedTest, Set<String>> testTagMap) {
+        ReportModel model = new ReportModel();
+        for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
+            ExecutedTest current = entry.getKey();
+            current.getTags().addAll(entry.getValue());
+            model.getExecutedTests().add( current );
+        }
+        log.info( "report model, getExecutedTests().size() : {}", model.getExecutedTests().size() );
+        return model;
     }
 
     private void generateTextReport(Map<ExecutedTest, Set<String>> testTagMap)
@@ -136,7 +153,7 @@ public class TagReportFacade {
                             status,
                             test.getClassName(),
                             test.getMethodName(),
-                            Double.parseDouble(test.getTime())));
+                            Double.parseDouble(test.getTime().toString())));
                 }
                 writer.write("\n");
             }
@@ -262,33 +279,10 @@ public class TagReportFacade {
         }
     }
 
-    private void generateJsonReport(Map<ExecutedTest, Set<String>> testTagMap)
+    private void generateJsonReport(ReportModel report)
             throws IOException {
         try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("{\n");
-            writer.write("  \"executedTests\": [\n");
-
-            int count = 0;
-            for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-                if (count++ > 0) writer.write(",\n");
-                ExecutedTest test = entry.getKey();
-                writer.write("    {\n");
-                writer.write("      \"class\": \"" + escapeJson(test.getClassName()) + "\",\n");
-                writer.write("      \"method\": \"" + escapeJson(test.getMethodName()) + "\",\n");
-                writer.write("      \"time\": " + test.getTime() + ",\n");
-                writer.write("      \"skipped\": " + test.isSkipped() + ",\n");
-                writer.write("      \"failed\": " + test.isFailed() + ",\n");
-                writer.write("      \"error\": " + test.isError() + ",\n");
-                writer.write("      \"tags\": [");
-                writer.write(entry.getValue().stream()
-                        .map(tag -> "\"" + escapeJson(tag) + "\"")
-                        .collect(Collectors.joining(", ")));
-                writer.write("]\n");
-                writer.write("    }");
-            }
-
-            writer.write("\n  ]\n");
-            writer.write("}");
+            new ObjectMapper().writerWithDefaultPrettyPrinter().writeValue(writer, report);
         }
     }
 
