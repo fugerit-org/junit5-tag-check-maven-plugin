@@ -8,7 +8,16 @@ A simple plugin to check the presence of JUnit5 test by tags.
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_junit5-tag-check-maven-plugin&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fugerit-org_junit5-tag-check-maven-plugin)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_junit5-tag-check-maven-plugin&metric=coverage)](https://sonarcloud.io/summary/new_code?id=fugerit-org_junit5-tag-check-maven-plugin)
 
-Here a sample configuration
+## Configuration reference
+
+| parameter                | type    | required | notes                                                |
+|--------------------------|---------|----------|------------------------------------------------------|
+| format                   | string  | true     | only 'html' accepted                                 |
+| outputFile               | string  | true     | path where should be produced the report             |
+| requiredTags.requiredTag | string  | true     | tag to be checked                                    |
+| failOnMissingTag         | boolean | true     | if set to 'true' the build will fail on missing tags |
+
+Here is a sample configuration
 
 ```
           <plugin>
