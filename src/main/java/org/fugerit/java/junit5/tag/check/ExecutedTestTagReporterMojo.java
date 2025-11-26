@@ -108,7 +108,7 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
         return new URLClassLoader(urls, Thread.currentThread().getContextClassLoader());
     }
 
-    private List<ExecutedTest> parseSurefireReports() throws Exception {
+    private List<ExecutedTest> parseSurefireReports() {
         List<ExecutedTest> executedTests = new ArrayList<>();
         SAXReader reader = new SAXReader();
 
