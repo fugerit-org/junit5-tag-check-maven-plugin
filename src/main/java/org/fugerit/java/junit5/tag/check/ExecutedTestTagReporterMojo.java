@@ -8,6 +8,8 @@ import org.apache.maven.project.MavenProject;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.fugerit.java.junit5.tag.check.model.ExecutedTest;
+import org.fugerit.java.junit5.tag.check.model.TestStats;
 import org.junit.jupiter.api.Tag;
 
 import java.io.File;
@@ -290,10 +292,10 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                     tagToTests.computeIfAbsent(tag, k -> new ArrayList<>()).add(test);
 
                     TestStats stats = tagStats.computeIfAbsent(tag, k -> new TestStats());
-                    stats.total++;
-                    if (test.isFailed()) stats.failed++;
-                    if (test.isError()) stats.errors++;
-                    if (test.isSkipped()) stats.skipped++;
+                    stats.increaseTotal();
+                    if (test.isFailed()) stats.increaseFailed();
+                    if (test.isError()) stats.increaseErrors();
+                    if (test.isSkipped()) stats.increaseSkipped();
                 }
             }
 
@@ -305,9 +307,9 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
 
             for (Map.Entry<String, TestStats> entry : tagStats.entrySet()) {
                 TestStats stats = entry.getValue();
-                int passed = stats.total - stats.failed - stats.errors - stats.skipped;
+                int passed = stats.getTotal() - stats.getFailed() - stats.getErrors() - stats.getSkipped();
                 writer.write(String.format("%-20s | %5d | %5d | %5d | %5d%n",
-                        entry.getKey(), stats.total, passed, stats.failed, stats.errors));
+                        entry.getKey(), stats.getTotal(), passed, stats.getFailed(), stats.getErrors()));
             }
 
             // Tests without tags
@@ -562,37 +564,4 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                 .replace("'", "&apos;");
     }
 
-    // Helper classes
-    static class ExecutedTest {
-        private final String className;
-        private final String methodName;
-        private final boolean skipped;
-        private final boolean failed;
-        private final boolean error;
-        private final String time;
-
-        public ExecutedTest(String className, String methodName,
-                            boolean skipped, boolean failed, boolean error, String time) {
-            this.className = className;
-            this.methodName = methodName;
-            this.skipped = skipped;
-            this.failed = failed;
-            this.error = error;
-            this.time = time;
-        }
-
-        public String getClassName() { return className; }
-        public String getMethodName() { return methodName; }
-        public boolean isSkipped() { return skipped; }
-        public boolean isFailed() { return failed; }
-        public boolean isError() { return error; }
-        public String getTime() { return time; }
-    }
-
-    static class TestStats {
-        int total = 0;
-        int failed = 0;
-        int errors = 0;
-        int skipped = 0;
-    }
 }
