@@ -136,6 +136,7 @@ class ExecutedTestTagReporterMojoTest {
         // Then: XML file should be created
         assertTrue(outputFile.exists());
         String content = new String(Files.readAllBytes(outputFile.toPath()));
+        log.info( "xml content : {}", content );
         assertTrue(content.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"));
         assertTrue(content.contains("<executedTestTagReport>"));
     }

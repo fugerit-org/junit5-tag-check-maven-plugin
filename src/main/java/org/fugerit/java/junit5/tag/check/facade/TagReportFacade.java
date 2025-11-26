@@ -2,10 +2,14 @@ package org.fugerit.java.junit5.tag.check.facade;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.fugerit.java.core.io.helper.HelperIOException;
+import org.fugerit.java.core.xml.dom.DOMIO;
 import org.fugerit.java.doc.base.config.DocConfig;
 import org.fugerit.java.junit5.tag.check.model.ExecutedTest;
 import org.fugerit.java.junit5.tag.check.model.ReportModel;
 import org.fugerit.java.junit5.tag.check.model.TestStats;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -43,7 +47,7 @@ public class TagReportFacade {
             case DocConfig.TYPE_JSON:
                 generateJsonReport(model);
                 break;
-            case "xml":
+            case DocConfig.TYPE_XML:
                 generateXmlReport(testTagMap);
                 break;
             case "html":
@@ -288,26 +292,30 @@ public class TagReportFacade {
 
     private void generateXmlReport(Map<ExecutedTest, Set<String>> testTagMap)
             throws IOException {
-        try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-            writer.write("<executedTestTagReport>\n");
-
-            for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-                ExecutedTest test = entry.getKey();
-                writer.write("  <test class=\"" + escapeXml(test.getClassName()) + "\" ");
-                writer.write("method=\"" + escapeXml(test.getMethodName()) + "\" ");
-                writer.write("time=\"" + test.getTime() + "\" ");
-                writer.write("skipped=\"" + test.isSkipped() + "\" ");
-                writer.write("failed=\"" + test.isFailed() + "\" ");
-                writer.write("error=\"" + test.isError() + "\">\n");
-                for (String tag : entry.getValue()) {
-                    writer.write("    <tag>" + escapeXml(tag) + "</tag>\n");
+        HelperIOException.apply( () -> {
+            try (FileWriter writer = new FileWriter(outputFile)) {
+                Document document = DOMIO.newSafeDocumentBuilderFactory().newDocumentBuilder().newDocument();
+                Element root = document.createElement("executedTestTagReport");
+                for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
+                    ExecutedTest test = entry.getKey();
+                    Element current = document.createElement("test");
+                    current.setAttribute("class", test.getClassName());
+                    current.setAttribute("method", test.getMethodName());
+                    current.setAttribute("time", test.getTime().toString());
+                    current.setAttribute("skipped", String.valueOf( test.isSkipped() ) );
+                    current.setAttribute("failed", String.valueOf( test.isFailed() ) );
+                    current.setAttribute("error", String.valueOf( test.isError() ) );
+                    for (String tag : entry.getValue()) {
+                        Element tagElement = document.createElement( "tag" );
+                        tagElement.appendChild( document.createTextNode(tag) );
+                        current.appendChild(tagElement);
+                    }
+                    root.appendChild(current);
                 }
-                writer.write("  </test>\n");
+                writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+                DOMIO.writeDOMIndent( root, writer );
             }
-
-            writer.write("</executedTestTagReport>\n");
-        }
+        } );
     }
 
     private String getStatusIcon(ExecutedTest test) {
