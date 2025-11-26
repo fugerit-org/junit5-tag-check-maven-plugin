@@ -381,40 +381,40 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
     private void generateHtmlReport(Map<ExecutedTest, Set<String>> testTagMap)
             throws IOException {
         try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("<!DOCTYPE html>%n<html>%n<head>%n");
-            writer.write("<meta charset=\"UTF-8\">%n");
-            writer.write("<title>Executed Test Tag Report</title>%n");
-            writer.write("<style>%n");
-            writer.write("body { font-family: Arial, sans-serif; margin: 20px; }%n");
-            writer.write("table { border-collapse: collapse; width: 100%; margin: 20px 0; }%n");
-            writer.write("th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }%n");
-            writer.write("th { background-color: #4CAF50; color: white; }%n");
-            writer.write("tr:nth-child(even) { background-color: #f2f2f2; }%n");
-            writer.write(".pass { color: green; }%n");
-            writer.write(".fail { color: red; }%n");
-            writer.write(".error { color: orange; }%n");
-            writer.write(".skip { color: gray; }%n");
+            writer.write("<!DOCTYPE html>\n<html>\n<head>\n");
+            writer.write("<meta charset=\"UTF-8\">\n");
+            writer.write("<title>Executed Test Tag Report</title>\n");
+            writer.write("<style>\n");
+            writer.write("body { font-family: Arial, sans-serif; margin: 20px; }\n");
+            writer.write("table { border-collapse: collapse; width: 100%; margin: 20px 0; }\n");
+            writer.write("th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }\n");
+            writer.write("th { background-color: #4CAF50; color: white; }\n");
+            writer.write("tr:nth-child(even) { background-color: #f2f2f2; }\n");
+            writer.write(".pass { color: green; }\n");
+            writer.write(".fail { color: red; }\n");
+            writer.write(".error { color: orange; }\n");
+            writer.write(".skip { color: gray; }\n");
             writer.write(".tag { background-color: #e7f3ff; padding: 2px 8px; ");
-            writer.write("border-radius: 3px; margin: 2px; display: inline-block; }%n");
-            writer.write("</style>%n");
-            writer.write("</head>%n<body>%n");
-            writer.write("<h1>Executed Test Tag Report</h1>%n");
+            writer.write("border-radius: 3px; margin: 2px; display: inline-block; }\n");
+            writer.write("</style>\n");
+            writer.write("</head>\n<body>\n");
+            writer.write("<h1>Executed Test Tag Report</h1>\n");
 
             // Summary
-            writer.write("<h2>Summary</h2>%n");
-            writer.write("<table>%n");
-            writer.write("<tr><th>Metric</th><th>Count</th></tr>%n");
-            writer.write("<tr><td>Total Tests</td><td>" + testTagMap.size() + "</td></tr>%n");
+            writer.write("<h2>Summary</h2>\n");
+            writer.write("<table>\n");
+            writer.write("<tr><th>Metric</th><th>Count</th></tr>\n");
+            writer.write("<tr><td>Total Tests</td><td>" + testTagMap.size() + "</td></tr>\n");
 
             long passed = testTagMap.keySet().stream()
                     .filter(t -> !t.isFailed() && !t.isError()).count();
             long failed = testTagMap.keySet().stream().filter(ExecutedTest::isFailed).count();
             long errors = testTagMap.keySet().stream().filter(ExecutedTest::isError).count();
 
-            writer.write("<tr><td>Passed</td><td class='pass'>" + passed + "</td></tr>%n");
-            writer.write("<tr><td>Failed</td><td class='fail'>" + failed + "</td></tr>%n");
-            writer.write("<tr><td>Errors</td><td class='error'>" + errors + "</td></tr>%n");
-            writer.write("</table>%n");
+            writer.write("<tr><td>Passed</td><td class='pass'>" + passed + "</td></tr>\n");
+            writer.write("<tr><td>Failed</td><td class='fail'>" + failed + "</td></tr>\n");
+            writer.write("<tr><td>Errors</td><td class='error'>" + errors + "</td></tr>\n");
+            writer.write("</table>\n");
 
             // Tags summary
             Map<String, List<ExecutedTest>> tagToTests = new HashMap<>();
@@ -424,19 +424,19 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                 }
             }
 
-            writer.write("<h2>Tags Summary</h2>%n");
-            writer.write("<table>%n");
-            writer.write("<tr><th>Tag</th><th>Tests</th></tr>%n");
+            writer.write("<h2>Tags Summary</h2>\n");
+            writer.write("<table>\n");
+            writer.write("<tr><th>Tag</th><th>Tests</th></tr>\n");
             for (Map.Entry<String, List<ExecutedTest>> entry : tagToTests.entrySet()) {
                 writer.write("<tr><td>" + entry.getKey() + "</td><td>" +
-                        entry.getValue().size() + "</td></tr>%n");
+                        entry.getValue().size() + "</td></tr>\n");
             }
-            writer.write("</table>%n");
+            writer.write("</table>\n");
 
             // All tests
-            writer.write("<h2>All Executed Tests</h2>%n");
-            writer.write("<table>%n");
-            writer.write("<tr><th>Status</th><th>Test</th><th>Tags</th><th>Time</th></tr>%n");
+            writer.write("<h2>All Executed Tests</h2>\n");
+            writer.write("<table>\n");
+            writer.write("<tr><th>Status</th><th>Test</th><th>Tags</th><th>Time</th></tr>\n");
             for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
                 ExecutedTest test = entry.getKey();
                 String statusClass = test.isFailed() ? "fail" :
@@ -452,11 +452,11 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                 }
                 writer.write("</td>");
                 writer.write("<td>" + test.getTime() + "s</td>");
-                writer.write("</tr>%n");
+                writer.write("</tr>\n");
             }
-            writer.write("</table>%n");
+            writer.write("</table>\n");
 
-            writer.write("</body>%n</html>");
+            writer.write("</body>\n</html>");
         }
     }
 
