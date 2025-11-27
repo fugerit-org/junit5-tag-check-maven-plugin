@@ -55,12 +55,14 @@ public class TagReportFacade {
                 generateFjDocReport( helper, format.toLowerCase() );
                 break;
             default:
-                generateTextReport(testTagMap);
+                generateTextReport(helper);
         }
     }
 
-    private void generateTextReport(Map<ExecutedTest, Set<String>> testTagMap)
-            throws IOException {
+    private void generateTextReport(ReportHelper helper) throws IOException {
+
+        Map<ExecutedTest, Set<String>> testTagMap = helper.getTestTagMap();
+
         // Helper method for String.repeat(80)
         String separator = repeatString("=", 80);
         String line = repeatString("-", 80);
@@ -94,21 +96,8 @@ public class TagReportFacade {
             writer.write("\n");
 
             // Summary by tag (Java 8 compatible map operations: computeIfAbsent is fine)
-            Map<String, List<ExecutedTest>> tagToTests = new HashMap<>();
-            Map<String, TestStats> tagStats = new HashMap<>();
-
-            for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-                ExecutedTest test = entry.getKey();
-                for (String tag : entry.getValue()) {
-                    tagToTests.computeIfAbsent(tag, k -> new ArrayList<>()).add(test);
-
-                    TestStats stats = tagStats.computeIfAbsent(tag, k -> new TestStats());
-                    stats.increaseTotal();
-                    if (test.isFailed()) stats.increaseFailed();
-                    if (test.isError()) stats.increaseErrors();
-                    if (test.isSkipped()) stats.increaseSkipped();
-                }
-            }
+            Map<String, List<ExecutedTest>> tagToTests = helper.getTagsToTests();
+            Map<String, TestStats> tagStats = helper.getTagsStats();
 
             writer.write("SUMMARY BY TAG:\n");
             writer.write(line + "\n");
@@ -193,7 +182,7 @@ public class TagReportFacade {
 
     private void generateFjDocReport(ReportHelper reportHelper, String handlerId) throws IOException {
         try (OutputStream os = new FileOutputStream(outputFile)) {
-            DocHelper.generateReport( handlerId, reportHelper, os );
+            new DocHelper().generateReport( handlerId, reportHelper, os );
         }
     }
 

@@ -18,10 +18,10 @@ public class DocHelper {
       * 
       * Consider using a @ApplicationScoped or Singleton approach.
       */
-     private static final FreemarkerDocProcessConfig docProcessConfig = FreemarkerDocProcessConfigFacade
+     private final FreemarkerDocProcessConfig docProcessConfig = FreemarkerDocProcessConfigFacade
             .loadConfigSafe("cl://junit5-tag-check-maven-plugin/fm-doc-process-config.xml");
 
-     public static void generateReport(String handlerId, ReportHelper reportHelper, OutputStream os ) {
+     public void generateReport(String handlerId, ReportHelper reportHelper, OutputStream os ) {
           SafeFunction.apply( () -> docProcessConfig.
                   fullProcess( "report",
                           DocProcessContext.newContext( "report", reportHelper )

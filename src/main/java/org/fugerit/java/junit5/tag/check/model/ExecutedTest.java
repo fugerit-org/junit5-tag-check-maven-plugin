@@ -1,19 +1,5 @@
 package org.fugerit.java.junit5.tag.check.model;
 
-/*
-
-    {
-      "class": "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
-      "method": "testHtmlOkNoAdminRole",
-      "time": 1.37,
-      "skipped": false,
-      "failed": false,
-      "error": false,
-      "tags": ["security", "authorized"]
-    },
-
- */
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 

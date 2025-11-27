@@ -11,13 +11,34 @@ public class ReportHelper {
 
     private ReportModel reportModel;
 
+    private Map<String, List<ExecutedTest>> tagToTests;
+
+    private Map<String, TestStats> tagStats;
+
     public ReportHelper(Map<ExecutedTest, Set<String>> testTagMap) {
         this.testTagMap = testTagMap;
+        // report model
         this.reportModel = new ReportModel();
         for (Map.Entry<ExecutedTest, Set<String>> entry : this.getTestTagMap().entrySet()) {
             ExecutedTest current = entry.getKey();
             current.getTags().addAll(entry.getValue());
             reportModel.getExecutedTests().add( current );
+        }
+        // tag to test
+        this.tagToTests = new HashMap<>();
+        this.tagStats = new HashMap<>();
+
+        for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
+            ExecutedTest test = entry.getKey();
+            for (String tag : entry.getValue()) {
+                tagToTests.computeIfAbsent(tag, k -> new ArrayList<>()).add(test);
+
+                TestStats stats = tagStats.computeIfAbsent(tag, k -> new TestStats());
+                stats.increaseTotal();
+                if (test.isFailed()) stats.increaseFailed();
+                if (test.isError()) stats.increaseErrors();
+                if (test.isSkipped()) stats.increaseSkipped();
+            }
         }
     }
 
@@ -42,14 +63,22 @@ public class ReportHelper {
     }
 
     public Map<String, List<ExecutedTest>> getTagsSummary() {
-        Map<String, List<ExecutedTest>> tagToTests = new LinkedHashMap<>();
+        Map<String, List<ExecutedTest>> tagsSummary = new LinkedHashMap<>();
         for (Map.Entry<ExecutedTest, Set<String>> entry : this.getTestTagMap().entrySet()) {
             for (String tag : entry.getValue()) {
-                tagToTests.computeIfAbsent(tag, k -> new ArrayList<>()).add(entry.getKey());
+                tagsSummary.computeIfAbsent(tag, k -> new ArrayList<>()).add(entry.getKey());
             }
         }
-        log.debug( "getTagsSummary() : {}", tagToTests );
-        return tagToTests;
+        log.debug( "getTagsSummary() : {}", tagsSummary );
+        return tagsSummary;
+    }
+
+    public Map<String, List<ExecutedTest>> getTagsToTests() {
+        return this.tagToTests;
+    }
+
+    public Map<String, TestStats> getTagsStats() {
+        return this.tagStats;
     }
 
 }
