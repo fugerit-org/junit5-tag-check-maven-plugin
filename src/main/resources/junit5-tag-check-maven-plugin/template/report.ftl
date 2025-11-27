@@ -22,6 +22,8 @@
         <info name="doc-subject">Report</info>
         <info name="doc-author">fugerit79</info>
         <info name="doc-language">en</info>
+        <info name="page-width">29.7cm</info>
+        <info name="page-height">21cm</info>
         <info name="html-css-style">
             body { font-family: Arial, sans-serif; margin: 20px; }
             table { border-collapse: collapse; width: 100%; margin: 20px 0; }
@@ -36,9 +38,9 @@
         </info>
     </metadata>
     <body>
-    <h head-level="1">${docTitle}</h>
+    <h head-level="1" style="bold">${docTitle}</h>
 
-    <h head-level="2">Summary</h>
+    <h head-level="2" style="bold" space-before="20">Summary</h>
 
     <table columns="2" colwidths="50;50"  width="100" id="summary-table">
         <row header="true">
@@ -63,7 +65,7 @@
         </row>
     </table>
 
-    <h head-level="2">Tags Summary</h>
+    <h head-level="2" style="bold" space-before="20">Tags Summary</h>
 
     <table columns="2" colwidths="50;50"  width="100" id="tags-summary-table">
         <row header="true">
@@ -78,9 +80,9 @@
         </#list>
     </table>
 
-    <h head-level="2">All Executed Tests</h>
+    <h head-level="2" style="bold" space-before="20">All Executed Tests</h>
 
-    <table columns="4" colwidths="15;55;15;15"  width="100" id="tags-summary-table">
+    <table columns="4" colwidths="15;55;15;15"  width="100" id="all-tests-table">
         <row header="true">
             <cell border-width="${defaultTableBorderSize}"><phrase>Status</phrase></cell>
             <cell border-width="${defaultTableBorderSize}"><phrase>Test</phrase></cell>
@@ -92,7 +94,7 @@
             <#assign currentStatusIcon><#if currentTest.failed>Fail<#elseif currentTest.error>Error<#elseif currentTest.skipped>Skipped<#else>Passed</#if></#assign>
             <row>
                 <cell border-width="${defaultTableBorderSize}" ${currentClassName}><phrase>${currentStatusIcon}</phrase></cell>
-                <cell border-width="${defaultTableBorderSize}"><phrase>${currentTest.className}#${currentTest.methodName}</phrase></cell>
+                <cell border-width="${defaultTableBorderSize}"><phrase>${currentTest.className}&#8203;#${currentTest.methodName}</phrase></cell>
                 <cell border-width="${defaultTableBorderSize}"><#list currentTest.tags as currentTag><phrase class="tag">${currentTag}</phrase></#list></cell>
                 <cell border-width="${defaultTableBorderSize}"><phrase>${currentTest.time}s</phrase></cell>
             </row>

@@ -12,7 +12,7 @@ A simple plugin to check the presence of JUnit5 test by tags.
 
 | parameter                | type    | required | notes                                                |
 |--------------------------|---------|----------|------------------------------------------------------|
-| format                   | string  | false    | default 'text', accepts 'html', 'json', 'xml'        |
+| format                   | string  | false    | default 'text', accepts 'html', 'json', 'xml', 'pdf' |
 | outputFile               | string  | true     | path where should be produced the report             |
 | requiredTags.requiredTag | string  | true     | tag to be checked                                    |
 | failOnMissingTag         | boolean | true     | if set to 'true' the build will fail on missing tags |

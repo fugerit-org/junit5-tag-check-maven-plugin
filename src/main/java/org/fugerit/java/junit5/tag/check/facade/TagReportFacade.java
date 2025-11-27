@@ -51,7 +51,8 @@ public class TagReportFacade {
                 generateXmlReport( testTagMap );
                 break;
             case DocConfig.TYPE_HTML:
-                generateHtmlReport( helper );
+            case DocConfig.TYPE_PDF:
+                generateFjDocReport( helper, format.toLowerCase() );
                 break;
             default:
                 generateTextReport(testTagMap);
@@ -190,9 +191,9 @@ public class TagReportFacade {
         return sb.toString();
     }
 
-    private void generateHtmlReport(ReportHelper reportHelper) throws IOException {
+    private void generateFjDocReport(ReportHelper reportHelper, String handlerId) throws IOException {
         try (OutputStream os = new FileOutputStream(outputFile)) {
-            DocHelper.generateReport( DocConfig.TYPE_HTML, reportHelper, os );
+            DocHelper.generateReport( handlerId, reportHelper, os );
         }
     }
 
