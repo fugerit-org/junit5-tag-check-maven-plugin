@@ -15,4 +15,6 @@ public class ReportModel {
         return this.executedTests;
     }
 
+
+
 }

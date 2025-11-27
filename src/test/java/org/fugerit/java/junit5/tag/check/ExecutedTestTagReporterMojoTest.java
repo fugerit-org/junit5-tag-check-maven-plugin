@@ -161,9 +161,9 @@ class ExecutedTestTagReporterMojoTest {
         // Then: HTML file should be created
         assertTrue(outputFile.exists());
         String content = new String(Files.readAllBytes(outputFile.toPath()));
-        assertTrue(content.contains("<!DOCTYPE html>"));
+        assertTrue(content.contains("<!doctype html>"));
         assertTrue(content.contains("<title>Executed Test Tag Report</title>"));
-        assertTrue(content.contains("<h1>Executed Test Tag Report</h1>"));
+        assertTrue(content.contains("Executed Test Tag Report</h1>"));
     }
 
     @Test

@@ -6,14 +6,13 @@ import org.fugerit.java.core.io.helper.HelperIOException;
 import org.fugerit.java.core.xml.dom.DOMIO;
 import org.fugerit.java.doc.base.config.DocConfig;
 import org.fugerit.java.junit5.tag.check.model.ExecutedTest;
+import org.fugerit.java.junit5.tag.check.model.ReportHelper;
 import org.fugerit.java.junit5.tag.check.model.ReportModel;
 import org.fugerit.java.junit5.tag.check.model.TestStats;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -42,31 +41,21 @@ public class TagReportFacade {
             throws IOException {
         outputFile.getParentFile().mkdirs();
 
-        ReportModel model = this.toReportModel(testTagMap);
+        ReportHelper helper = new ReportHelper( testTagMap );
+
         switch (format.toLowerCase()) {
             case DocConfig.TYPE_JSON:
-                generateJsonReport(model);
+                generateJsonReport( helper.getReportModel() );
                 break;
             case DocConfig.TYPE_XML:
-                generateXmlReport(testTagMap);
+                generateXmlReport( testTagMap );
                 break;
-            case "html":
-                generateHtmlReport(testTagMap);
+            case DocConfig.TYPE_HTML:
+                generateHtmlReport( helper );
                 break;
             default:
                 generateTextReport(testTagMap);
         }
-    }
-
-    private ReportModel toReportModel(Map<ExecutedTest, Set<String>> testTagMap) {
-        ReportModel model = new ReportModel();
-        for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-            ExecutedTest current = entry.getKey();
-            current.getTags().addAll(entry.getValue());
-            model.getExecutedTests().add( current );
-        }
-        log.info( "report model, getExecutedTests().size() : {}", model.getExecutedTests().size() );
-        return model;
     }
 
     private void generateTextReport(Map<ExecutedTest, Set<String>> testTagMap)
@@ -201,85 +190,9 @@ public class TagReportFacade {
         return sb.toString();
     }
 
-    private void generateHtmlReport(Map<ExecutedTest, Set<String>> testTagMap)
-            throws IOException {
-        try (FileWriter writer = new FileWriter(outputFile)) {
-            writer.write("<!DOCTYPE html>\n<html>\n<head>\n");
-            writer.write("<meta charset=\"UTF-8\">\n");
-            writer.write("<title>Executed Test Tag Report</title>\n");
-            writer.write("<style>\n");
-            writer.write("body { font-family: Arial, sans-serif; margin: 20px; }\n");
-            writer.write("table { border-collapse: collapse; width: 100%; margin: 20px 0; }\n");
-            writer.write("th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }\n");
-            writer.write("th { background-color: #4CAF50; color: white; }\n");
-            writer.write("tr:nth-child(even) { background-color: #f2f2f2; }\n");
-            writer.write(".pass { color: green; }\n");
-            writer.write(".fail { color: red; }\n");
-            writer.write(".error { color: orange; }\n");
-            writer.write(".skip { color: gray; }\n");
-            writer.write(".tag { background-color: #e7f3ff; padding: 2px 8px; ");
-            writer.write("border-radius: 3px; margin: 2px; display: inline-block; }\n");
-            writer.write("</style>\n");
-            writer.write("</head>\n<body>\n");
-            writer.write("<h1>Executed Test Tag Report</h1>\n");
-
-            // Summary
-            writer.write("<h2>Summary</h2>\n");
-            writer.write("<table>\n");
-            writer.write("<tr><th>Metric</th><th>Count</th></tr>\n");
-            writer.write("<tr><td>Total Tests</td><td>" + testTagMap.size() + "</td></tr>\n");
-
-            long passed = testTagMap.keySet().stream()
-                    .filter(t -> !t.isFailed() && !t.isError()).count();
-            long failed = testTagMap.keySet().stream().filter(ExecutedTest::isFailed).count();
-            long errors = testTagMap.keySet().stream().filter(ExecutedTest::isError).count();
-
-            writer.write("<tr><td>Passed</td><td class='pass'>" + passed + "</td></tr>\n");
-            writer.write("<tr><td>Failed</td><td class='fail'>" + failed + "</td></tr>\n");
-            writer.write("<tr><td>Errors</td><td class='error'>" + errors + "</td></tr>\n");
-            writer.write("</table>\n");
-
-            // Tags summary
-            Map<String, List<ExecutedTest>> tagToTests = new HashMap<>();
-            for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-                for (String tag : entry.getValue()) {
-                    tagToTests.computeIfAbsent(tag, k -> new ArrayList<>()).add(entry.getKey());
-                }
-            }
-
-            writer.write("<h2>Tags Summary</h2>\n");
-            writer.write("<table>\n");
-            writer.write("<tr><th>Tag</th><th>Tests</th></tr>\n");
-            for (Map.Entry<String, List<ExecutedTest>> entry : tagToTests.entrySet()) {
-                writer.write("<tr><td>" + entry.getKey() + "</td><td>" +
-                        entry.getValue().size() + "</td></tr>\n");
-            }
-            writer.write("</table>\n");
-
-            // All tests
-            writer.write("<h2>All Executed Tests</h2>\n");
-            writer.write("<table>\n");
-            writer.write("<tr><th>Status</th><th>Test</th><th>Tags</th><th>Time</th></tr>\n");
-            for (Map.Entry<ExecutedTest, Set<String>> entry : testTagMap.entrySet()) {
-                ExecutedTest test = entry.getKey();
-                String statusClass = test.isFailed() ? "fail" :
-                        test.isError() ? "error" : "pass";
-                String status = getStatusIcon(test);
-
-                writer.write("<tr>");
-                writer.write("<td class='" + statusClass + "'>" + status + "</td>");
-                writer.write("<td>" + test.getClassName() + "#" + test.getMethodName() + "</td>");
-                writer.write("<td>");
-                for (String tag : entry.getValue()) {
-                    writer.write("<span class='tag'>" + tag + "</span> ");
-                }
-                writer.write("</td>");
-                writer.write("<td>" + test.getTime() + "s</td>");
-                writer.write("</tr>\n");
-            }
-            writer.write("</table>\n");
-
-            writer.write("</body>\n</html>");
+    private void generateHtmlReport(ReportHelper reportHelper) throws IOException {
+        try (OutputStream os = new FileOutputStream(outputFile)) {
+            DocHelper.generateReport( DocConfig.TYPE_HTML, reportHelper, os );
         }
     }
 
@@ -325,18 +238,4 @@ public class TagReportFacade {
         return "✅";
     }
 
-    private String escapeJson(String str) {
-        return str.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n");
-    }
-
-    private String escapeXml(String str) {
-        return str.replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;")
-                .replace("\"", "&quot;")
-                .replace("'", "&apos;");
-    }
-    
 }
