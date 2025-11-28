@@ -67,6 +67,7 @@
 
     <h head-level="2" style="bold" space-before="20">Tags Summary</h>
 
+    <#if tagsSummary?size &gt; 0>
     <table columns="2" colwidths="50;50"  width="100" id="tags-summary-table">
         <row header="true">
             <cell border-width="${defaultTableBorderSize}"><phrase>Tag</phrase></cell>
@@ -79,9 +80,11 @@
         </row>
         </#list>
     </table>
+    </#if>
 
     <h head-level="2" style="bold" space-before="20">All Executed Tests</h>
 
+    <#if testTagMap?size &gt; 0>
     <table columns="4" colwidths="15;55;15;15"  width="100" id="all-tests-table">
         <row header="true">
             <cell border-width="${defaultTableBorderSize}"><phrase>Status</phrase></cell>
@@ -92,7 +95,6 @@
         <#list testTagMap?keys as currentTest>
             <#assign currentClassName><#if currentTest.failed>class="fail"<#elseif currentTest.error>class="error"<#else>class="pass"</#if></#assign>
             <#assign currentStatusIcon><#if currentTest.failed>❌<#elseif currentTest.error>⚠️<#elseif currentTest.skipped>⊘<#else>✅</#if></#assign>
-            <#-- <#assign currentStatusIcon><#if currentTest.failed>Fail<#elseif currentTest.error>Error<#elseif currentTest.skipped>Skipped<#else>Passed</#if></#assign> -->
             <row>
                 <cell border-width="${defaultTableBorderSize}" ${currentClassName}><phrase<#if docType == 'pdf'> font-name="Symbola"</#if>>${currentStatusIcon}</phrase></cell>
                 <cell border-width="${defaultTableBorderSize}"><phrase>${currentTest.className}&#8203;#${currentTest.methodName}</phrase></cell>
@@ -101,6 +103,7 @@
             </row>
         </#list>
     </table>
+    </#if>
 
     </body>
 

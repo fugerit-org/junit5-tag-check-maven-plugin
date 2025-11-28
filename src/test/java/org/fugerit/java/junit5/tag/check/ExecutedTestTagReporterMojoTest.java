@@ -11,6 +11,7 @@ import org.junit.jupiter.api.io.TempDir;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -67,6 +68,31 @@ class ExecutedTestTagReporterMojoTest {
         // Then: should not fail, just warn
         assertFalse(outputFile.exists());
     }
+
+    @Test
+    void testHelperMethods() throws Exception {
+        // Given: a sample Surefire report
+        createSampleSurefireReport("TEST-SampleHelperMethodsTest.xml",
+                "com.example.helper.SampleTest",
+                Arrays.asList(
+                        new TestCase("testMethodA", "0.111", false, false, false),
+                        new TestCase("testMethodB", "0.222", false, false, false)
+                )
+        );
+
+        setField(mojo, "format", "pdf");
+        outputFile = tempDir.resolve("test-tag-report.pdf").toFile();
+        setField(mojo, "outputFile", outputFile);
+
+        // When: execute
+        mojo.execute();
+        // Then: output file should be created
+        assertTrue(outputFile.exists());
+
+        String content = new String(Files.readAllBytes(outputFile.toPath()));
+        assertTrue(content.contains("PDF"));
+    }
+
 
     @Test
     void testExecuteGeneratesTextReport() throws Exception {
@@ -462,8 +488,8 @@ class ExecutedTestTagReporterMojoTest {
     private void createSampleSurefireReport(String filename, String className,
                                             List<TestCase> testCases) throws IOException {
         File reportFile = new File(surefireReportsDir, filename);
-
-        try (FileWriter writer = new FileWriter(reportFile)) {
+        try (StringWriter writer = new StringWriter();
+             FileWriter fileWriter = new FileWriter(reportFile)) {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             writer.write("<testsuite name=\"" + className + "\" ");
             writer.write("tests=\"" + testCases.size() + "\" ");
@@ -492,8 +518,9 @@ class ExecutedTestTagReporterMojoTest {
                     writer.write("  </testcase>\n");
                 }
             }
-
             writer.write("</testsuite>\n");
+            log.info( "report, file : {}, content : {}", outputFile.getAbsolutePath(), writer );
+            fileWriter.write(writer.toString());
         }
     }
 
