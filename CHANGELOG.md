@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fj-doc-version 8.17.9
 - report generation engine with [Venus Fugerit Doc](https://github.com/fugerit-org/fj-doc)
 
+### Fixed
+
+- security issue <https://github.com/fugerit-org/junit5-tag-check-maven-plugin/security/code-scanning/1>
+
 ## [1.0.2] - 2025-11-26
 
 ### Fixed

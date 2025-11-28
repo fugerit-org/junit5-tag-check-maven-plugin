@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.fugerit.java.core.function.SafeFunction;
 import org.fugerit.java.junit5.tag.check.model.ExecutedTest;
 
 import java.io.File;
@@ -19,6 +20,7 @@ public class TagSurefireFacade {
     public static List<ExecutedTest> parseSurefireReports( File surefireReportsDirectory, boolean includeSkipped ) {
         List<ExecutedTest> executedTests = new ArrayList<>();
         SAXReader reader = new SAXReader();
+        SafeFunction.apply( () -> reader.setFeature("http://apache.org/xml/features/disallow-doctype-decl", Boolean.TRUE ) );
 
         // Find all XML report files
         File[] reportFiles = surefireReportsDirectory.listFiles(
