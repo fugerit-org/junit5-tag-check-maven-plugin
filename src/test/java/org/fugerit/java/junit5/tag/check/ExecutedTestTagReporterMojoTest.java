@@ -5,6 +5,8 @@ import org.apache.maven.model.Build;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -20,6 +22,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
+@Order( 1 )
 class ExecutedTestTagReporterMojoTest {
 
     @TempDir
@@ -70,6 +73,7 @@ class ExecutedTestTagReporterMojoTest {
     }
 
     @Test
+    @Tag("helper")
     void testHelperMethods() throws Exception {
         // Given: a sample Surefire report
         createSampleSurefireReport("TEST-SampleHelperMethodsTest.xml",

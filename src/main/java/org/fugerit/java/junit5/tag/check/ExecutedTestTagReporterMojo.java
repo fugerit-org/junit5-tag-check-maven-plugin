@@ -27,27 +27,27 @@ import java.util.*;
 public class ExecutedTestTagReporterMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${project}", readonly = true, required = true)
-    private MavenProject project;
+    protected MavenProject project;
 
     @Parameter(property = "surefire.reports.directory",
             defaultValue = "${project.build.directory}/surefire-reports")
-    private File surefireReportsDirectory;
+    protected File surefireReportsDirectory;
 
     @Parameter(property = "test.tag.reporter.outputFile",
             defaultValue = "${project.build.directory}/executed-test-tag-report.txt")
-    private File outputFile;
+    protected File outputFile;
 
     @Parameter(property = "test.tag.reporter.format", defaultValue = "text")
-    private String format; // text, json, xml, html
+    protected String format; // text, json, xml, html
 
     @Parameter(property = "test.tag.reporter.requiredTags")
-    private List<String> requiredTags;
+    protected List<String> requiredTags;
 
     @Parameter(property = "test.tag.reporter.failOnMissingTag", defaultValue = "false")
-    private boolean failOnMissingTag;
+    protected boolean failOnMissingTag;
 
     @Parameter(property = "test.tag.reporter.includeSkipped", defaultValue = "false")
-    private boolean includeSkipped;
+    protected boolean includeSkipped;
 
     @Override
     public void execute() throws MojoExecutionException {
