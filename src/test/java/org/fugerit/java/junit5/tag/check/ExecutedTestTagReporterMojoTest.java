@@ -5,12 +5,15 @@ import org.apache.maven.model.Build;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -19,6 +22,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
+@Order( 1 )
 class ExecutedTestTagReporterMojoTest {
 
     @TempDir
@@ -67,6 +71,32 @@ class ExecutedTestTagReporterMojoTest {
         // Then: should not fail, just warn
         assertFalse(outputFile.exists());
     }
+
+    @Test
+    @Tag("helper")
+    void testHelperMethods() throws Exception {
+        // Given: a sample Surefire report
+        createSampleSurefireReport("TEST-SampleHelperMethodsTest.xml",
+                "com.example.helper.SampleTest",
+                Arrays.asList(
+                        new TestCase("testMethodA", "0.111", false, false, false),
+                        new TestCase("testMethodB", "0.222", false, false, false)
+                )
+        );
+
+        setField(mojo, "format", "pdf");
+        outputFile = tempDir.resolve("test-tag-report.pdf").toFile();
+        setField(mojo, "outputFile", outputFile);
+
+        // When: execute
+        mojo.execute();
+        // Then: output file should be created
+        assertTrue(outputFile.exists());
+
+        String content = new String(Files.readAllBytes(outputFile.toPath()));
+        assertTrue(content.contains("PDF"));
+    }
+
 
     @Test
     void testExecuteGeneratesTextReport() throws Exception {
@@ -136,6 +166,7 @@ class ExecutedTestTagReporterMojoTest {
         // Then: XML file should be created
         assertTrue(outputFile.exists());
         String content = new String(Files.readAllBytes(outputFile.toPath()));
+        log.info( "xml content : {}", content );
         assertTrue(content.contains("<?xml version=\"1.0\" encoding=\"UTF-8\"?>"));
         assertTrue(content.contains("<executedTestTagReport>"));
     }
@@ -160,9 +191,9 @@ class ExecutedTestTagReporterMojoTest {
         // Then: HTML file should be created
         assertTrue(outputFile.exists());
         String content = new String(Files.readAllBytes(outputFile.toPath()));
-        assertTrue(content.contains("<!DOCTYPE html>"));
+        assertTrue(content.contains("<!doctype html>"));
         assertTrue(content.contains("<title>Executed Test Tag Report</title>"));
-        assertTrue(content.contains("<h1>Executed Test Tag Report</h1>"));
+        assertTrue(content.contains("Executed Test Tag Report</h1>"));
     }
 
     @Test
@@ -461,8 +492,8 @@ class ExecutedTestTagReporterMojoTest {
     private void createSampleSurefireReport(String filename, String className,
                                             List<TestCase> testCases) throws IOException {
         File reportFile = new File(surefireReportsDir, filename);
-
-        try (FileWriter writer = new FileWriter(reportFile)) {
+        try (StringWriter writer = new StringWriter();
+             FileWriter fileWriter = new FileWriter(reportFile)) {
             writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
             writer.write("<testsuite name=\"" + className + "\" ");
             writer.write("tests=\"" + testCases.size() + "\" ");
@@ -491,8 +522,9 @@ class ExecutedTestTagReporterMojoTest {
                     writer.write("  </testcase>\n");
                 }
             }
-
             writer.write("</testsuite>\n");
+            log.info( "report, file : {}, content : {}", outputFile.getAbsolutePath(), writer );
+            fileWriter.write(writer.toString());
         }
     }
 

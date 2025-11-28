@@ -1,172 +1,190 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-
-	<artifactId>junit5-tag-check-maven-plugin</artifactId>
-
-	<parent>
-		<groupId>org.fugerit.java</groupId>
-		<artifactId>fj-bom</artifactId>
-		<version>2.0.5</version>
-		<relativePath></relativePath>
-	</parent>
-
-	<version>1.0.3-SNAPSHOT</version>
-	<packaging>maven-plugin</packaging>
-
-	<name>junit5-tag-check-maven-plugin</name>
-	<description>A simple plugin to check the presence of JUnit5 test by tags.</description>
-	<url>http://www.fugerit.org/</url>
-
-	<scm>
-		<connection>scm:git:git://github.com/fugerit-org/unit5-tag-check-maven-plugin.git</connection>
-		<developerConnection>scm:git:ssh://github.com/fugerit-org/unit5-tag-check-maven-plugin.git</developerConnection>
-		<url>http://github.com/fugerit-org/unit5-tag-check-maven-plugin/tree/main</url>
-	</scm>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven-core-version>3.9.11</maven-core-version>
-		<junit-platform-launcher-version>1.14.1</junit-platform-launcher-version>
-		<dom4j-version>2.2.0</dom4j-version>
-	    <!-- sonar cloud configuration -->
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.organization>fugerit-org</sonar.organization>
-		<sonar.projectKey>fugerit-org_unit5-tag-check-maven-plugin</sonar.projectKey>
-	</properties>
-
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<developers>
-		<developer>
-			<name>Matteo a.k.a. Fugerit</name>
-			<email>m@fugerit.org</email>
-			<organization>Fugerit</organization>
-			<organizationUrl>http://www.fugerit.org</organizationUrl>
-		</developer>
-		<developer>
-			<name>Daneel</name>
-			<email>d@fugerit.org</email>
-			<organization>Fugerit</organization>
-			<organizationUrl>http://www.fugerit.org</organizationUrl>
-		</developer>
-	</developers>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<dependencies>
-
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-plugin-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-core</artifactId>
-			<version>${maven-core-version}</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven.plugin-tools</groupId>
-			<artifactId>maven-plugin-annotations</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.dom4j</groupId>
-			<artifactId>dom4j</artifactId>
-			<version>${dom4j-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<version>${junit-platform-launcher-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven.plugin-testing</groupId>
-			<artifactId>maven-plugin-testing-harness</artifactId>
-			<version>3.3.0</version> <scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.maven</groupId>
-			<artifactId>maven-compat</artifactId>
-			<version>3.9.0</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-	</dependencies>
-
-	<build>
-
-		<plugins>
-		
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-plugin-plugin</artifactId>
-			   <executions>
-			      <execution>
-			        <id>default-descriptor</id>
-			        <phase>process-classes</phase>
-			      </execution>
-			    </executions>	
-			</plugin>		
-		
-		</plugins>
-
-	</build>
-
-	<organization>
-		<url>http://www.fugerit.org</url>
-		<name>Fugerit</name>
-	</organization>
-		
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.fugerit.java</groupId>
+    <artifactId>fj-bom</artifactId>
+    <version>2.0.5</version>
+    <relativePath></relativePath>
+  </parent>
+  <artifactId>junit5-tag-check-maven-plugin</artifactId>
+  <version>1.0.3-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>junit5-tag-check-maven-plugin</name>
+  <description>A simple plugin to check the presence of JUnit5 test by tags.</description>
+  <url>http://www.fugerit.org/</url>
+  <organization>
+    <name>Fugerit</name>
+    <url>http://www.fugerit.org</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Matteo a.k.a. Fugerit</name>
+      <email>m@fugerit.org</email>
+      <organization>Fugerit</organization>
+      <organizationUrl>http://www.fugerit.org</organizationUrl>
+    </developer>
+    <developer>
+      <name>Daneel</name>
+      <email>d@fugerit.org</email>
+      <organization>Fugerit</organization>
+      <organizationUrl>http://www.fugerit.org</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/fugerit-org/unit5-tag-check-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://github.com/fugerit-org/unit5-tag-check-maven-plugin.git</developerConnection>
+    <url>http://github.com/fugerit-org/unit5-tag-check-maven-plugin/tree/main</url>
+  </scm>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+  <properties>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <sonar.projectKey>fugerit-org_unit5-tag-check-maven-plugin</sonar.projectKey>
+    <dom4j-version>2.2.0</dom4j-version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <junit-platform-launcher-version>1.14.1</junit-platform-launcher-version>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-core-version>3.9.11</maven-core-version>
+    <sonar.organization>fugerit-org</sonar.organization>
+    <fj-doc-version>8.17.9</fj-doc-version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.fugerit.java</groupId>
+        <artifactId>fj-doc</artifactId>
+        <version>${fj-doc-version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-core</artifactId>
+      <version>${maven-core-version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugin-tools</groupId>
+      <artifactId>maven-plugin-annotations</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>${dom4j-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>${junit-platform-launcher-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.plugin-testing</groupId>
+      <artifactId>maven-plugin-testing-harness</artifactId>
+      <version>3.3.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-compat</artifactId>
+      <version>3.9.0</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>fj-doc-base</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>fj-doc-base-json</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>fj-doc-freemarker</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>fj-doc-mod-fop</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-descriptor</id>
+            <phase>process-classes</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.fugerit.java</groupId>
+        <artifactId>fj-doc-maven-plugin</artifactId>
+        <version>${fj-doc-version}</version>
+        <executions>
+          <execution>
+            <id>freemarker-verify</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <configuration>
+              <templateBasePath>${project.basedir}/src/main/resources/junit5-tag-check-maven-plugin/template</templateBasePath>
+              <generateReport>true</generateReport>
+              <failOnErrors>true</failOnErrors>
+              <reportOutputFolder>${project.build.directory}/freemarker-syntax-verify-report</reportOutputFolder>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 </project>

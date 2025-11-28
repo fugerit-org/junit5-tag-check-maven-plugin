@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="1.169" tests="18" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/test-classes:/omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/classes:/workspace/maven/local_repo/org/apache/maven/maven-plugin-api/3.9.11/maven-plugin-api-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-model/3.9.11/maven-model-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-artifact/3.9.11/maven-artifact-3.9.11.jar:/workspace/maven/local_repo/org/eclipse/sisu/org.eclipse.sisu.plexus/0.9.0.M4/org.eclipse.sisu.plexus-0.9.0.M4.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-utils/3.6.0/plexus-utils-3.6.0.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-classworlds/2.9.0/plexus-classworlds-2.9.0.jar:/workspace/maven/local_repo/org/apache/maven/maven-core/3.9.11/maven-core-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-settings/3.9.11/maven-settings-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-settings-builder/3.9.11/maven-settings-builder-3.9.11.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-sec-dispatcher/2.0/plexus-sec-dispatcher-2.0.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-cipher/2.0/plexus-cipher-2.0.jar:/workspace/maven/local_repo/org/apache/maven/maven-builder-support/3.9.11/maven-builder-support-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-repository-metadata/3.9.11/maven-repository-metadata-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-model-builder/3.9.11/maven-model-builder-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-resolver-provider/3.9.11/maven-resolver-provider-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-impl/1.9.24/maven-resolver-impl-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-named-locks/1.9.24/maven-resolver-named-locks-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-api/1.9.24/maven-resolver-api-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-spi/1.9.24/maven-resolver-spi-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-util/1.9.24/maven-resolver-util-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/shared/maven-shared-utils/3.4.2/maven-shared-utils-3.4.2.jar:/workspace/maven/local_repo/org/eclipse/sisu/org.eclipse.sisu.inject/0.9.0.M4/org.eclipse.sisu.inject-0.9.0.M4.jar:/workspace/maven/local_repo/org/ow2/asm/asm/9.8/asm-9.8.jar:/workspace/maven/local_repo/com/google/inject/guice/5.1.0/guice-5.1.0-classes.jar:/workspace/maven/local_repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/workspace/maven/local_repo/com/google/guava/guava/33.4.8-jre/guava-33.4.8-jre.jar:/workspace/maven/local_repo/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/workspace/maven/local_repo/com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3.jar:/workspace/maven/local_repo/javax/inject/javax.inject/1/javax.inject-1.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-interpolation/1.28/plexus-interpolation-1.28.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-component-annotations/2.2.0/plexus-component-annotations-2.2.0.jar:/workspace/maven/local_repo/org/apache/maven/plugin-tools/maven-plugin-annotations/3.15.1/maven-plugin-annotations-3.15.1.jar:/workspace/maven/local_repo/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/workspace/maven/local_repo/org/dom4j/dom4j/2.2.0/dom4j-2.2.0.jar:/workspace/maven/local_repo/org/junit/platform/junit-platform-launcher/1.14.1/junit-platform-launcher-1.14.1.jar:/workspace/maven/local_repo/org/junit/platform/junit-platform-engine/1.14.1/junit-platform-engine-1.14.1.jar:/workspace/maven/local_repo/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.jar:/workspace/maven/local_repo/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/workspace/maven/local_repo/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.jar:/workspace/maven/local_repo/org/apache/maven/plugin-testing/maven-plugin-testing-harness/3.3.0/maven-plugin-testing-harness-3.3.0.jar:/workspace/maven/local_repo/commons-io/commons-io/2.2/commons-io-2.2.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-archiver/2.2/plexus-archiver-2.2.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar:/workspace/maven/local_repo/junit/junit/4.13.2/junit-4.13.2.jar:/workspace/maven/local_repo/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/workspace/maven/local_repo/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-io/2.0.4/plexus-io-2.0.4.jar:/workspace/maven/local_repo/org/apache/maven/maven-compat/3.9.0/maven-compat-3.9.0.jar:/workspace/maven/local_repo/org/apache/maven/wagon/wagon-provider-api/3.5.3/wagon-provider-api-3.5.3.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-base/8.17.9/fj-doc-base-8.17.9.jar:/workspace/maven/local_repo/org/fugerit/java/fj-core/8.7.3/fj-core-8.7.3.jar:/workspace/maven/local_repo/org/apache/commons/commons-dbcp2/2.13.0/commons-dbcp2-2.13.0.jar:/workspace/maven/local_repo/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/workspace/maven/local_repo/commons-logging/commons-logging/1.3.4/commons-logging-1.3.4.jar:/workspace/maven/local_repo/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-base-json/8.17.9/fj-doc-base-json-8.17.9.jar:/workspace/maven/local_repo/org/fugerit/java/fj-xml-to-json/1.2.1/fj-xml-to-json-1.2.1.jar:/workspace/maven/local_repo/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar:/workspace/maven/local_repo/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar:/workspace/maven/local_repo/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar:/workspace/maven/local_repo/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.20.0/jackson-dataformat-yaml-2.20.0.jar:/workspace/maven/local_repo/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-freemarker/8.17.9/fj-doc-freemarker-8.17.9.jar:/workspace/maven/local_repo/org/freemarker/freemarker/2.3.34/freemarker-2.3.34.jar:/workspace/maven/local_repo/org/fugerit/java/freemarker-native/1.0.0/freemarker-native-1.0.0.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-mod-fop/8.17.9/fj-doc-mod-fop-8.17.9.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop/2.11/fop-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop-util/2.11/fop-util-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/xmlgraphics-commons/2.11/xmlgraphics-commons-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop-events/2.11/fop-events-2.11.jar:/workspace/maven/local_repo/com/thoughtworks/qdox/qdox/1.12/qdox-1.12.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop-core/2.11/fop-core-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-anim/1.19/batik-anim-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-css/1.19/batik-css-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-dom/1.19/batik-dom-1.19.jar:/workspace/maven/local_repo/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-ext/1.19/batik-ext-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-parser/1.19/batik-parser-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-shared-resources/1.19/batik-shared-resources-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-svg-dom/1.19/batik-svg-dom-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-util/1.19/batik-util-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-constants/1.19/batik-constants-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-i18n/1.19/batik-i18n-1.19.jar:/workspace/maven/local_repo/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-awt-util/1.19/batik-awt-util-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-bridge/1.19/batik-bridge-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-script/1.19/batik-script-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-xml/1.19/batik-xml-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-extension/1.19/batik-extension-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-gvt/1.19/batik-gvt-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-transcoder/1.19/batik-transcoder-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-svggen/1.19/batik-svggen-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-codec/1.19/batik-codec-1.19.jar:/workspace/maven/local_repo/org/apache/pdfbox/fontbox/3.0.3/fontbox-3.0.3.jar:/workspace/maven/local_repo/org/apache/pdfbox/pdfbox-io/3.0.3/pdfbox-io-3.0.3.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.jar:/workspace/maven/local_repo/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar:/workspace/maven/local_repo/org/slf4j/slf4j-simple/2.0.17/slf4j-simple-2.0.17.jar:"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Rome"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/omnia/workspace/runtime/java/graalvm-jdk-21.0.8+12.1/lib"/>
+    <property name="sun.java.command" value="/omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/surefire/surefirebooter-20251128114230865_3.jar /omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/surefire 2025-11-28T11-42-30_811-jvmRun1 surefire-20251128114230865_1tmp surefire_0-20251128114230865_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/test-classes:/omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/classes:/workspace/maven/local_repo/org/apache/maven/maven-plugin-api/3.9.11/maven-plugin-api-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-model/3.9.11/maven-model-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-artifact/3.9.11/maven-artifact-3.9.11.jar:/workspace/maven/local_repo/org/eclipse/sisu/org.eclipse.sisu.plexus/0.9.0.M4/org.eclipse.sisu.plexus-0.9.0.M4.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-utils/3.6.0/plexus-utils-3.6.0.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-classworlds/2.9.0/plexus-classworlds-2.9.0.jar:/workspace/maven/local_repo/org/apache/maven/maven-core/3.9.11/maven-core-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-settings/3.9.11/maven-settings-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-settings-builder/3.9.11/maven-settings-builder-3.9.11.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-sec-dispatcher/2.0/plexus-sec-dispatcher-2.0.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-cipher/2.0/plexus-cipher-2.0.jar:/workspace/maven/local_repo/org/apache/maven/maven-builder-support/3.9.11/maven-builder-support-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-repository-metadata/3.9.11/maven-repository-metadata-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-model-builder/3.9.11/maven-model-builder-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/maven-resolver-provider/3.9.11/maven-resolver-provider-3.9.11.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-impl/1.9.24/maven-resolver-impl-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-named-locks/1.9.24/maven-resolver-named-locks-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-api/1.9.24/maven-resolver-api-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-spi/1.9.24/maven-resolver-spi-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/resolver/maven-resolver-util/1.9.24/maven-resolver-util-1.9.24.jar:/workspace/maven/local_repo/org/apache/maven/shared/maven-shared-utils/3.4.2/maven-shared-utils-3.4.2.jar:/workspace/maven/local_repo/org/eclipse/sisu/org.eclipse.sisu.inject/0.9.0.M4/org.eclipse.sisu.inject-0.9.0.M4.jar:/workspace/maven/local_repo/org/ow2/asm/asm/9.8/asm-9.8.jar:/workspace/maven/local_repo/com/google/inject/guice/5.1.0/guice-5.1.0-classes.jar:/workspace/maven/local_repo/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/workspace/maven/local_repo/com/google/guava/guava/33.4.8-jre/guava-33.4.8-jre.jar:/workspace/maven/local_repo/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar:/workspace/maven/local_repo/com/google/guava/failureaccess/1.0.3/failureaccess-1.0.3.jar:/workspace/maven/local_repo/javax/inject/javax.inject/1/javax.inject-1.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-interpolation/1.28/plexus-interpolation-1.28.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-component-annotations/2.2.0/plexus-component-annotations-2.2.0.jar:/workspace/maven/local_repo/org/apache/maven/plugin-tools/maven-plugin-annotations/3.15.1/maven-plugin-annotations-3.15.1.jar:/workspace/maven/local_repo/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/workspace/maven/local_repo/org/dom4j/dom4j/2.2.0/dom4j-2.2.0.jar:/workspace/maven/local_repo/org/junit/platform/junit-platform-launcher/1.14.1/junit-platform-launcher-1.14.1.jar:/workspace/maven/local_repo/org/junit/platform/junit-platform-engine/1.14.1/junit-platform-engine-1.14.1.jar:/workspace/maven/local_repo/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter-api/5.13.4/junit-jupiter-api-5.13.4.jar:/workspace/maven/local_repo/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/workspace/maven/local_repo/org/junit/platform/junit-platform-commons/1.13.4/junit-platform-commons-1.13.4.jar:/workspace/maven/local_repo/org/apache/maven/plugin-testing/maven-plugin-testing-harness/3.3.0/maven-plugin-testing-harness-3.3.0.jar:/workspace/maven/local_repo/commons-io/commons-io/2.2/commons-io-2.2.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-archiver/2.2/plexus-archiver-2.2.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar:/workspace/maven/local_repo/junit/junit/4.13.2/junit-4.13.2.jar:/workspace/maven/local_repo/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/workspace/maven/local_repo/classworlds/classworlds/1.1-alpha-2/classworlds-1.1-alpha-2.jar:/workspace/maven/local_repo/org/codehaus/plexus/plexus-io/2.0.4/plexus-io-2.0.4.jar:/workspace/maven/local_repo/org/apache/maven/maven-compat/3.9.0/maven-compat-3.9.0.jar:/workspace/maven/local_repo/org/apache/maven/wagon/wagon-provider-api/3.5.3/wagon-provider-api-3.5.3.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-base/8.17.9/fj-doc-base-8.17.9.jar:/workspace/maven/local_repo/org/fugerit/java/fj-core/8.7.3/fj-core-8.7.3.jar:/workspace/maven/local_repo/org/apache/commons/commons-dbcp2/2.13.0/commons-dbcp2-2.13.0.jar:/workspace/maven/local_repo/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/workspace/maven/local_repo/commons-logging/commons-logging/1.3.4/commons-logging-1.3.4.jar:/workspace/maven/local_repo/jakarta/transaction/jakarta.transaction-api/1.3.3/jakarta.transaction-api-1.3.3.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-base-json/8.17.9/fj-doc-base-json-8.17.9.jar:/workspace/maven/local_repo/org/fugerit/java/fj-xml-to-json/1.2.1/fj-xml-to-json-1.2.1.jar:/workspace/maven/local_repo/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar:/workspace/maven/local_repo/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar:/workspace/maven/local_repo/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar:/workspace/maven/local_repo/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.20.0/jackson-dataformat-yaml-2.20.0.jar:/workspace/maven/local_repo/org/yaml/snakeyaml/2.4/snakeyaml-2.4.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-freemarker/8.17.9/fj-doc-freemarker-8.17.9.jar:/workspace/maven/local_repo/org/freemarker/freemarker/2.3.34/freemarker-2.3.34.jar:/workspace/maven/local_repo/org/fugerit/java/freemarker-native/1.0.0/freemarker-native-1.0.0.jar:/workspace/maven/local_repo/org/fugerit/java/fj-doc-mod-fop/8.17.9/fj-doc-mod-fop-8.17.9.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop/2.11/fop-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop-util/2.11/fop-util-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/xmlgraphics-commons/2.11/xmlgraphics-commons-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop-events/2.11/fop-events-2.11.jar:/workspace/maven/local_repo/com/thoughtworks/qdox/qdox/1.12/qdox-1.12.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/fop-core/2.11/fop-core-2.11.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-anim/1.19/batik-anim-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-css/1.19/batik-css-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-dom/1.19/batik-dom-1.19.jar:/workspace/maven/local_repo/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-ext/1.19/batik-ext-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-parser/1.19/batik-parser-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-shared-resources/1.19/batik-shared-resources-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-svg-dom/1.19/batik-svg-dom-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-util/1.19/batik-util-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-constants/1.19/batik-constants-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-i18n/1.19/batik-i18n-1.19.jar:/workspace/maven/local_repo/xml-apis/xml-apis-ext/1.3.04/xml-apis-ext-1.3.04.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-awt-util/1.19/batik-awt-util-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-bridge/1.19/batik-bridge-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-script/1.19/batik-script-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-xml/1.19/batik-xml-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-extension/1.19/batik-extension-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-gvt/1.19/batik-gvt-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-transcoder/1.19/batik-transcoder-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-svggen/1.19/batik-svggen-1.19.jar:/workspace/maven/local_repo/org/apache/xmlgraphics/batik-codec/1.19/batik-codec-1.19.jar:/workspace/maven/local_repo/org/apache/pdfbox/fontbox/3.0.3/fontbox-3.0.3.jar:/workspace/maven/local_repo/org/apache/pdfbox/pdfbox-io/3.0.3/pdfbox-io-3.0.3.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter/5.13.4/junit-jupiter-5.13.4.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter-params/5.13.4/junit-jupiter-params-5.13.4.jar:/workspace/maven/local_repo/org/junit/jupiter/junit-jupiter-engine/5.13.4/junit-jupiter-engine-5.13.4.jar:/workspace/maven/local_repo/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar:/workspace/maven/local_repo/org/slf4j/slf4j-simple/2.0.17/slf4j-simple-2.0.17.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/fugerit"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/omnia/workspace/runtime/java/graalvm-jdk-21.0.8+12.1"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/omnia/workspace/git/fug/junit5-tag-check-maven-plugin"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="jdk.internal.vm.ci.enabled" value="true"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/omnia/workspace/git/fug/junit5-tag-check-maven-plugin/target/surefire/surefirebooter-20251128114230865_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.8+12-LTS-jvmci-23.1-b72"/>
+    <property name="user.name" value="fugerit"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.8.0-88-generic"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Oracle GraalVM 21.0.8+12.1"/>
+    <property name="localRepository" value="/workspace/maven/local_repo"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="21.0.8"/>
+    <property name="user.dir" value="/omnia/workspace/git/fug/junit5-tag-check-maven-plugin"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.8+12-LTS-jvmci-23.1-b72"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testExecuteGeneratesTextReport" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.084">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 2 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-8783969413741792993/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-8783969413741792993/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="2" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+  <testcase name="testMethod2" classname="com.example.SampleTest" time="0.456"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithErrorTests" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.006">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 2 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-6213762140929721071/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-6213762140929721071/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="2" failures="0" errors="1" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+  <testcase name="testMethod2" classname="com.example.SampleTest" time="0.456">
+    <error message="Test error"/>
+  </testcase>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithMultipleReportFiles" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.007">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 3 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-18134802494762859681/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-18134802494762859681/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.Test1" tests="2" failures="0" errors="0" skipped="0">
+  <testcase name="testA" classname="com.example.Test1" time="0.111"/>
+  <testcase name="testB" classname="com.example.Test1" time="0.222"/>
+</testsuite>
+
+[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-18134802494762859681/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.Test2" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testC" classname="com.example.Test2" time="0.333"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.Test2
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.Test1
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.Test1
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteGeneratesHtmlReport" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.292">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-10725347156173240073/test-tag-report.html
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-10725347156173240073/test-tag-report.html, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfigSafe config path : cl://junit5-tag-check-maven-plugin/fm-doc-process-config.xml
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : validating value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : failOnValidate value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : cleanSource value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : table-check-integrity value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - docHandlerList -> 8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : md-ext
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id md-ext, handler SimpleMarkdownExtTypeHandler{customId='e80e88be-e89f-43b0-ba82-9f9747a04462', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md-markdown : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> SimpleMarkdownExtTypeHandler{customId='e80e88be-e89f-43b0-ba82-9f9747a04462', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8} : list [md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : xml-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id xml-doc, handler DocTypeHandlerCoreXMLUTF8{customId='fad6418d-92d5-47b3-a70a-e528eeb4c381', type='xml', module='doc-core', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml-doc-core : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerCoreXMLUTF8{customId='fad6418d-92d5-47b3-a70a-e528eeb4c381', type='xml', module='doc-core', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, xml-doc, xml, md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : json-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id json-doc, handler DocTypeHandlerCoreJSONUTF8{customId='4013518c-1082-4b87-be28-ae6e109d35f8', type='json', module='doc-core', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id json-doc-core : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id json : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerCoreJSONUTF8{customId='4013518c-1082-4b87-be28-ae6e109d35f8', type='json', module='doc-core', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, xml-doc, json-doc, xml, json-doc-core, md, json, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fm, handler FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='7c4f9236-1b46-4fee-a1ca-f927ae11124e', type='html', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='7c4f9236-1b46-4fee-a1ca-f927ae11124e', type='html', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, xml-doc, json-doc, html-fm, xml, json-doc-core, md, json, md-markdown, html, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fragment-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fragment-fm, handler FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='cbe22225-7a54-4d8d-8f8b-1bcbe77585ab', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='cbe22225-7a54-4d8d-8f8b-1bcbe77585ab', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, fhtml-fm, json-doc, html-fm, md-markdown, xml-doc, xml, json-doc-core, md, json, html, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : asciidoc-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id asciidoc-fm, handler FreeMarkerAsciidocTypeHandlerUTF8{customId='01aa1abd-3845-4953-9ef2-c83d422dbee5', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc-fm : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerAsciidocTypeHandlerUTF8{customId='01aa1abd-3845-4953-9ef2-c83d422dbee5', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, fhtml-fm, json-doc, html-fm, md-markdown, xml-doc, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfigSafe config path : cl://fj_doc_mod_fop_config/fm-fop-process-config.xml
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : validating value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : failOnValidate value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : cleanSource value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : table-check-integrity value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfig ok : org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfig@1ec9bd38
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : fo-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id fo-fop, handler FreeMarkerFopTypeHandlerUTF8{customId='941a23fc-0767-4736-bc14-63ca23f29ebc', type='fo', module='fop', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fo-fop : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fo : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerFopTypeHandlerUTF8{customId='941a23fc-0767-4736-bc14-63ca23f29ebc', type='fo', module='fop', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, fhtml-fm, fo-fop, json-doc, html-fm, fo, md-markdown, xml-doc, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : pdf-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id pdf-fop, handler PdfFopTypeHandler{customId='cd6b3d40-84f8-4569-87b2-94ba21eda380', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0]
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf-fop : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> PdfFopTypeHandler{customId='cd6b3d40-84f8-4569-87b2-94ba21eda380', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0] : list [xml-doc-core, fhtml-fm, fo-fop, json-doc, html-fm, fo, md-markdown, xml-doc, pdf, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, pdf-fop, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfig ok : org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfig@50313382
+[main] INFO org.fugerit.java.core.util.filterchain.MiniFilterBase - FreeMarkerConfigStep INIT - config = {mode=class, path=/junit5-tag-check-maven-plugin/template/, load-bundled-functions=true, exception-handler=RETHROW_HANDLER, fallback-on-null-loop-variable=false, wrap-unchecked-exceptions=true, log-exception=false, version=2.3.34, class=org.fugerit.java.junit5.tag.check.facade.DocHelper}
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfigSafe config path : cl://junit5-tag-check-maven-plugin/fm-doc-process-config.xml
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : validating value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : failOnValidate value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : cleanSource value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : table-check-integrity value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - docHandlerList -> 8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : md-ext
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id md-ext, handler SimpleMarkdownExtTypeHandler{customId='60cf525f-64a5-4a8e-934c-192e3c4fba7c', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md-markdown : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> SimpleMarkdownExtTypeHandler{customId='60cf525f-64a5-4a8e-934c-192e3c4fba7c', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8} : list [md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : xml-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id xml-doc, handler DocTypeHandlerCoreXMLUTF8{customId='4752b1af-0637-4171-a88c-3b80705152cd', type='xml', module='doc-core', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml-doc-core : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerCoreXMLUTF8{customId='4752b1af-0637-4171-a88c-3b80705152cd', type='xml', module='doc-core', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, xml-doc, xml, md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : json-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id json-doc, handler DocTypeHandlerCoreJSONUTF8{customId='595ffbef-11f8-40d2-b46a-58f6248b668f', type='json', module='doc-core', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id json-doc-core : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id json : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerCoreJSONUTF8{customId='595ffbef-11f8-40d2-b46a-58f6248b668f', type='json', module='doc-core', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, xml-doc, json-doc, xml, json-doc-core, md, json, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fm, handler FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='cf6f3660-5fb7-4f6b-a2a4-47b302821752', type='html', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='cf6f3660-5fb7-4f6b-a2a4-47b302821752', type='html', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, xml-doc, json-doc, html-fm, xml, json-doc-core, md, json, md-markdown, html, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fragment-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fragment-fm, handler FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='06a98e0d-608c-4cd4-843f-e5f415111484', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='06a98e0d-608c-4cd4-843f-e5f415111484', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, fhtml-fm, json-doc, html-fm, md-markdown, xml-doc, xml, json-doc-core, md, json, html, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : asciidoc-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id asciidoc-fm, handler FreeMarkerAsciidocTypeHandlerUTF8{customId='2ceffc00-0d06-4ca0-9429-bae2aa9ea4cf', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc-fm : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerAsciidocTypeHandlerUTF8{customId='2ceffc00-0d06-4ca0-9429-bae2aa9ea4cf', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, fhtml-fm, json-doc, html-fm, md-markdown, xml-doc, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : fo-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id fo-fop, handler FreeMarkerFopTypeHandlerUTF8{customId='0cf63e52-de84-4df3-b72e-1ac17b0b9d6a', type='fo', module='fop', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fo-fop : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fo : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerFopTypeHandlerUTF8{customId='0cf63e52-de84-4df3-b72e-1ac17b0b9d6a', type='fo', module='fop', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, fhtml-fm, fo-fop, json-doc, html-fm, fo, md-markdown, xml-doc, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : pdf-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id pdf-fop, handler PdfFopTypeHandler{customId='9ae72dc9-d180-4443-a263-5b2ea6005b41', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0]
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf-fop : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> PdfFopTypeHandler{customId='9ae72dc9-d180-4443-a263-5b2ea6005b41', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0] : list [xml-doc-core, fhtml-fm, fo-fop, json-doc, html-fm, fo, md-markdown, xml-doc, pdf, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, pdf-fop, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfig ok : org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfig@64a40280
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfigSafe config path : cl://fj_doc_freemarker_config/fm-freemarker-doc-process-config.xml
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : validating value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : failOnValidate value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : cleanSource value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : table-check-integrity value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - docHandlerList -> 8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : md-ext
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id md-ext, handler SimpleMarkdownExtTypeHandler{customId='a9a945e6-7ded-427d-8349-9efadff5b94f', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md-markdown : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> SimpleMarkdownExtTypeHandler{customId='a9a945e6-7ded-427d-8349-9efadff5b94f', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8} : list [md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.config.DocTypeHandlerXMLUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : xml-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id xml-doc, handler DocTypeHandlerXMLUTF8{customId='0dbfbf49-015b-456e-bfa5-96e2336b0a6a', type='xml', module='doc', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml-doc : org.fugerit.java.doc.base.config.DocTypeHandlerXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml : org.fugerit.java.doc.base.config.DocTypeHandlerXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerXMLUTF8{customId='0dbfbf49-015b-456e-bfa5-96e2336b0a6a', type='xml', module='doc', format='null', mime='null', charset=UTF-8} : list [xml-doc, xml, md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fm, handler FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='9618f9c7-eba3-4dab-9a10-c2921d32370b', type='html', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='9618f9c7-eba3-4dab-9a10-c2921d32370b', type='html', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc, html-fm, xml, md, md-markdown, html, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fragment-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fragment-fm, handler FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='fa940c14-b192-4b5d-ad2e-3d0d03bbc4c8', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='fa940c14-b192-4b5d-ad2e-3d0d03bbc4c8', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8} : list [fhtml-fm, xml-doc, html-fm, xml, md, md-markdown, html, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : asoc-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id asoc-fm, handler FreeMarkerAsciidocTypeHandlerUTF8{customId='3f880981-4d46-4655-a1ad-be77d291bc94', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc-fm : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerAsciidocTypeHandlerUTF8{customId='3f880981-4d46-4655-a1ad-be77d291bc94', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8} : list [fhtml-fm, html-fm, md-markdown, asoc-fm, xml-doc, xml, md, adoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : pdf-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id pdf-fop, handler PdfFopTypeHandler{customId='133b305e-5089-4e50-9b61-12101a996827', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0]
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf-fop : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> PdfFopTypeHandler{customId='133b305e-5089-4e50-9b61-12101a996827', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0] : list [fhtml-fm, html-fm, md-markdown, asoc-fm, xml-doc, pdf, xml, md, adoc-fm, html, adoc, md-ext, pdf-fop, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.poi.XlsxPoiTypeHandler
+[main] WARN org.fugerit.java.core.cfg.helpers.UnsafeHelper - Error handling unsafe section org.fugerit.java.core.cfg.ConfigException: Type cannot be loaded : java.lang.ClassNotFoundException: org.fugerit.java.doc.mod.poi.XlsxPoiTypeHandler [trace suppressed, set unsafe-mode='log-trace' to show]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.opencsv.OpenCSVTypeHandler
+[main] WARN org.fugerit.java.core.cfg.helpers.UnsafeHelper - Error handling unsafe section org.fugerit.java.core.cfg.ConfigException: Type cannot be loaded : java.lang.ClassNotFoundException: org.fugerit.java.doc.mod.opencsv.OpenCSVTypeHandler [trace suppressed, set unsafe-mode='log-trace' to show]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfig ok : org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfig@7db82169
+[main] INFO org.fugerit.java.core.util.filterchain.MiniFilterBase - FreeMarkerConfigStep INIT - config = {mode=class, path=/fj_doc_freemarker_config/template/, load-bundled-functions=false, exception-handler=RETHROW_HANDLER, fallback-on-null-loop-variable=false, wrap-unchecked-exceptions=true, log-exception=false, version=2.3.29, class=org.fugerit.java.doc.freemarker.process.DocChainModel}
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithRequiredTagsPresent" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.004">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-10990854664358589308/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-10990854664358589308/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagCheckFacade - Missing required tags in executed tests: integration, smoke
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithNoReports" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.001">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[warn] Surefire reports directory not found: /tmp/junit-12477981002955327309/surefire-reports
+]]></system-out>
+  </testcase>
+  <testcase name="testExecuteGeneratesXmlReport" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.028">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-6183886253853630564/test-tag-report.xml
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-6183886253853630564/test-tag-report.xml, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - xml content : <?xml version="1.0" encoding="UTF-8"?>
+<executedTestTagReport>
+  <test class="com.example.SampleTest" error="false" failed="false" method="testMethod1" skipped="false" time="0.123"/>
+</executedTestTagReport>
+
+]]></system-err>
+  </testcase>
+  <testcase name="testJsonReportStructure" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.108">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 2 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-8410272546839247211/report.json
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-8410272546839247211/report.json, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.JsonTest" tests="2" failures="1" errors="0" skipped="0">
+  <testcase name="test1" classname="com.example.JsonTest" time="0.123"/>
+  <testcase name="test2" classname="com.example.JsonTest" time="0.456">
+    <failure message="Test failed"/>
+  </testcase>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.JsonTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.JsonTest
+[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - outputFile json : /tmp/junit-8410272546839247211/report.json
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithRequiredTagsMissing_NoFail" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.004">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-1149781714810672714/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-1149781714810672714/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagCheckFacade - Missing required tags in executed tests: missing-tag
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithFailedTests" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.006">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 2 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-9016547478596643974/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-9016547478596643974/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="2" failures="1" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+  <testcase name="testMethod2" classname="com.example.SampleTest" time="0.456">
+    <failure message="Test failed"/>
+  </testcase>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteHandlesInvalidXml" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.012">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 0 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-10541275190188119736/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] WARN org.fugerit.java.junit5.tag.check.facade.TagSurefireFacade - Error parsing report file: TEST-Invalid.xml
+org.dom4j.DocumentException: Error on line 1 of document file:///tmp/junit-10541275190188119736/surefire-reports/TEST-Invalid.xml : Content is not allowed in prolog.
+	at org.dom4j.io.SAXReader.read(SAXReader.java:511)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:325)
+	at org.fugerit.java.junit5.tag.check.facade.TagSurefireFacade.parseSurefireReports(TagSurefireFacade.java:39)
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojo.execute(ExecutedTestTagReporterMojo.java:67)
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest.lambda$testExecuteHandlesInvalidXml$1(ExecutedTestTagReporterMojoTest.java:362)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:49)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:36)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3199)
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest.testExecuteHandlesInvalidXml(ExecutedTestTagReporterMojoTest.java:362)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:787)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:478)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:161)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$4(TestMethodTestDescriptor.java:221)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:217)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:159)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:157)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:230)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:204)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:172)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:101)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:64)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:150)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:63)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:109)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:91)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.xml.sax.SAXParseException; systemId: file:///tmp/junit-10541275190188119736/surefire-reports/TEST-Invalid.xml; lineNumber: 1; columnNumber: 1; Content is not allowed in prolog.
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(ErrorHandlerWrapper.java:204)
+	at java.xml/com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(ErrorHandlerWrapper.java:178)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:400)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(XMLErrorReporter.java:327)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(XMLScanner.java:1465)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl$PrologDriver.next(XMLDocumentScannerImpl.java:978)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(XMLNSDocumentScannerImpl.java:114)
+	at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+	at org.dom4j.io.SAXReader.read(SAXReader.java:494)
+	... 83 more
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteGeneratesJsonReport" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.008">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-5374679357855700744/test-tag-report.json
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-5374679357855700744/test-tag-report.json, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithSkippedTests" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.004">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 2 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-14293657254514164644/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-14293657254514164644/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="2" failures="0" errors="0" skipped="1">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+  <testcase name="testMethod2" classname="com.example.SampleTest" time="0.000">
+    <skipped/>
+  </testcase>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+]]></system-err>
+  </testcase>
+  <testcase name="testXmlReportStructure" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.005">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-17219639176636337129/report.xml
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-17219639176636337129/report.xml, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.XmlTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="test1" classname="com.example.XmlTest" time="0.111"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.XmlTest
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteWithRequiredTagsMissing_Fail" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.005">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-17436458022768576264/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.SampleTest" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="testMethod1" classname="com.example.SampleTest" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.SampleTest
+[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - Error logging : Error generating executed test tag report
+org.apache.maven.plugin.MojoExecutionException: Error generating executed test tag report
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojo.execute(ExecutedTestTagReporterMojo.java:87)
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest.lambda$testExecuteWithRequiredTagsMissing_Fail$0(ExecutedTestTagReporterMojoTest.java:315)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:53)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest.testExecuteWithRequiredTagsMissing_Fail(ExecutedTestTagReporterMojoTest.java:313)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:787)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:478)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:161)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$4(TestMethodTestDescriptor.java:221)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:217)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:159)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:157)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:161)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:147)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:145)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:101)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:230)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:204)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:172)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:101)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:64)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:150)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:63)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:109)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:91)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:56)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:194)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:150)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:124)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+Caused by: org.apache.maven.plugin.MojoExecutionException: Missing required tags in executed tests: missing-tag
+	at org.fugerit.java.junit5.tag.check.facade.TagCheckFacade.checkRequiredTags(TagCheckFacade.java:32)
+	at org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojo.execute(ExecutedTestTagReporterMojo.java:80)
+	... 80 more
+]]></system-err>
+  </testcase>
+  <testcase name="testExecuteCreatesOutputDirectory" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.005">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 1 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-15540336658259268674/reports/nested/dir/report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-15540336658259268674/reports/nested/dir/report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.Test" tests="1" failures="0" errors="0" skipped="0">
+  <testcase name="test1" classname="com.example.Test" time="0.123"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.Test
+]]></system-err>
+  </testcase>
+  <testcase name="testHelperMethods" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.555">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 2 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-9126754872686861025/test-tag-report.pdf
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-9126754872686861025/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.helper.SampleTest" tests="2" failures="0" errors="0" skipped="0">
+  <testcase name="testMethodA" classname="com.example.helper.SampleTest" time="0.111"/>
+  <testcase name="testMethodB" classname="com.example.helper.SampleTest" time="0.222"/>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.helper.SampleTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.helper.SampleTest
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfigSafe config path : cl://junit5-tag-check-maven-plugin/fm-doc-process-config.xml
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : validating value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : failOnValidate value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : cleanSource value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - setupGeneralAttribute : name : table-check-integrity value : 
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - docHandlerList -> 8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : md-ext
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id md-ext, handler SimpleMarkdownExtTypeHandler{customId='661067aa-7db7-4108-a910-2514c5e4e8bb', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md-markdown : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id md : org.fugerit.java.doc.base.typehandler.markdown.SimpleMarkdownExtTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> SimpleMarkdownExtTypeHandler{customId='661067aa-7db7-4108-a910-2514c5e4e8bb', type='md', module='markdown', format='null', mime='text/x-markdown', charset=UTF-8} : list [md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : xml-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id xml-doc, handler DocTypeHandlerCoreXMLUTF8{customId='d324ee4d-168c-41f2-b3f5-bb55e361ff82', type='xml', module='doc-core', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml-doc-core : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id xml : org.fugerit.java.doc.base.typehandler.core.DocTypeHandlerCoreXMLUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerCoreXMLUTF8{customId='d324ee4d-168c-41f2-b3f5-bb55e361ff82', type='xml', module='doc-core', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, xml-doc, xml, md, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : json-doc
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id json-doc, handler DocTypeHandlerCoreJSONUTF8{customId='cfc483b0-cbfb-4e0d-94f9-f75fe1db71df', type='json', module='doc-core', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id json-doc-core : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id json : org.fugerit.java.doc.json.typehandler.DocTypeHandlerCoreJSONUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> DocTypeHandlerCoreJSONUTF8{customId='cfc483b0-cbfb-4e0d-94f9-f75fe1db71df', type='json', module='doc-core', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, xml-doc, json-doc, xml, json-doc-core, md, json, md-markdown, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fm, handler FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='33ccadcb-0689-4045-8d59-552cdd5e87be', type='html', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id html : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlTypeHandlerEscapeUTF8{customId='33ccadcb-0689-4045-8d59-552cdd5e87be', type='html', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, xml-doc, json-doc, html-fm, xml, json-doc-core, md, json, md-markdown, html, md-ext]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : html-fragment-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id html-fragment-fm, handler FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='f670dc9e-b490-437b-8b72-ed40000c17cf', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml-fm : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fhtml : org.fugerit.java.doc.freemarker.html.FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerHtmlFragmentTypeHandlerEscapeUTF8{customId='f670dc9e-b490-437b-8b72-ed40000c17cf', type='fhtml', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, fhtml-fm, json-doc, html-fm, md-markdown, xml-doc, xml, json-doc-core, md, json, html, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : asciidoc-fm
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id asciidoc-fm, handler FreeMarkerAsciidocTypeHandlerUTF8{customId='f8007d77-1b54-4f92-a099-c0c0ec74e6b2', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc-fm : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id adoc : org.fugerit.java.doc.freemarker.asciidoc.FreeMarkerAsciidocTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerAsciidocTypeHandlerUTF8{customId='f8007d77-1b54-4f92-a099-c0c0ec74e6b2', type='adoc', module='fm', format='null', mime='text/html', charset=UTF-8} : list [xml-doc-core, fhtml-fm, json-doc, html-fm, md-markdown, xml-doc, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : fo-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id fo-fop, handler FreeMarkerFopTypeHandlerUTF8{customId='2adcb963-1424-4b69-9791-190eebd67eac', type='fo', module='fop', format='null', mime='null', charset=UTF-8}
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fo-fop : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id fo : org.fugerit.java.doc.mod.fop.FreeMarkerFopTypeHandlerUTF8
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> FreeMarkerFopTypeHandlerUTF8{customId='2adcb963-1424-4b69-9791-190eebd67eac', type='fo', module='fop', format='null', mime='null', charset=UTF-8} : list [xml-doc-core, fhtml-fm, fo-fop, json-doc, html-fm, fo, md-markdown, xml-doc, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - factoryType : [docHandler: null] , resultType : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - ConfigurableObject -> try configure()
+[main] INFO org.fugerit.java.doc.base.config.DocTypeHandlerDefault - configure : pdf-fop
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - register handler id pdf-fop, handler PdfFopTypeHandler{customId='e19035ac-b38b-457f-ae03-4e0f97c70af6', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0]
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf-fop : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - Registering handler with id pdf : org.fugerit.java.doc.mod.fop.PdfFopTypeHandler
+[main] INFO org.fugerit.java.doc.base.facade.DocHandlerFacade - list keys current -> PdfFopTypeHandler{customId='e19035ac-b38b-457f-ae03-4e0f97c70af6', type='pdf', module='fop', format='null', mime='null', charset=UTF-8}[pdfAmode=null,pdfUAmode=,null,poolMin=0,poolMax=0] : list [xml-doc-core, fhtml-fm, fo-fop, json-doc, html-fm, fo, md-markdown, xml-doc, pdf, xml, json-doc-core, md, adoc-fm, json, asciidoc-fm, html, adoc, md-ext, pdf-fop, html-fragment-fm, fhtml]
+[main] INFO org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfigFacade - loadConfig ok : org.fugerit.java.doc.freemarker.process.FreemarkerDocProcessConfig@42f22995
+[main] INFO org.fugerit.java.core.util.filterchain.MiniFilterBase - FreeMarkerConfigStep INIT - config = {mode=class, path=/fj_doc_mod_fop_config/template/, load-bundled-functions=false, exception-handler=RETHROW_HANDLER, fallback-on-null-loop-variable=false, wrap-unchecked-exceptions=true, log-exception=false, version=2.3.29, class=org.fugerit.java.doc.mod.fop.FopConfigDefault}
+[main] INFO org.apache.fop.apps.FopConfParser -  COMMONS-LOGGING Default page-height set to: 11in
+[main] INFO org.apache.fop.apps.FopConfParser -  COMMONS-LOGGING Default page-width set to: 8.26in
+]]></system-err>
+  </testcase>
+  <testcase name="testTextReportFormat" classname="org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest" time="0.006">
+    <system-out><![CDATA[[info] Executed Test Tag Reporter - Analyzing test execution...
+[info] Found 3 executed tests
+[info] Executed Test Tag Report generated: /tmp/junit-1237600049410088728/test-tag-report.txt
+]]></system-out>
+    <system-err><![CDATA[[main] INFO org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest - report, file : /tmp/junit-1237600049410088728/test-tag-report.txt, content : <?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.FormatTest" tests="3" failures="1" errors="1" skipped="0">
+  <testcase name="passedTest" classname="com.example.FormatTest" time="0.100"/>
+  <testcase name="failedTest" classname="com.example.FormatTest" time="0.200">
+    <failure message="Test failed"/>
+  </testcase>
+  <testcase name="errorTest" classname="com.example.FormatTest" time="0.300">
+    <error message="Test error"/>
+  </testcase>
+</testsuite>
+
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.FormatTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.FormatTest
+[main] WARN org.fugerit.java.junit5.tag.check.facade.TagScanFacade - Could not load test class: com.example.FormatTest
+]]></system-err>
+  </testcase>
+</testsuite>

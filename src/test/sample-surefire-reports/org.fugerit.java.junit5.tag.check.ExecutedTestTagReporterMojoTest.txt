@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest
+-------------------------------------------------------------------------------
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.169 s -- in org.fugerit.java.junit5.tag.check.ExecutedTestTagReporterMojoTest
