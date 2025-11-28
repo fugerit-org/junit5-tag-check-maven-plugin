@@ -15,6 +15,11 @@
 	<renderers>
 	   <renderer mime="application/pdf">
 		   <version>1.4</version>
+           <fonts>
+               <font embed-url="classpath://font/Symbola.ttf" embedding-mode="full">
+                   <font-triplet name="Symbola" style="normal" weight="normal"/>
+               </font>
+           </fonts>
 	   </renderer> 
 	</renderers>
 

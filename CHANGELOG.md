@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- fj-doc-version 8.17.9
 - report generation engine with [Venus Fugerit Doc](https://github.com/fugerit-org/fj-doc)
 
 ## [1.0.2] - 2025-11-26

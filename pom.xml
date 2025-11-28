@@ -60,7 +60,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven-core-version>3.9.11</maven-core-version>
     <sonar.organization>fugerit-org</sonar.organization>
-    <fj-doc-version>8.17.8</fj-doc-version>
+    <fj-doc-version>8.17.9</fj-doc-version>
   </properties>
   <dependencyManagement>
     <dependencies>

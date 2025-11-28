@@ -91,9 +91,10 @@
         </row>
         <#list testTagMap?keys as currentTest>
             <#assign currentClassName><#if currentTest.failed>class="fail"<#elseif currentTest.error>class="error"<#else>class="pass"</#if></#assign>
-            <#assign currentStatusIcon><#if currentTest.failed>Fail<#elseif currentTest.error>Error<#elseif currentTest.skipped>Skipped<#else>Passed</#if></#assign>
+            <#assign currentStatusIcon><#if currentTest.failed>❌<#elseif currentTest.error>⚠️<#elseif currentTest.skipped>⊘<#else>✅</#if></#assign>
+            <#-- <#assign currentStatusIcon><#if currentTest.failed>Fail<#elseif currentTest.error>Error<#elseif currentTest.skipped>Skipped<#else>Passed</#if></#assign> -->
             <row>
-                <cell border-width="${defaultTableBorderSize}" ${currentClassName}><phrase>${currentStatusIcon}</phrase></cell>
+                <cell border-width="${defaultTableBorderSize}" ${currentClassName}><phrase<#if docType == 'pdf'> font-name="Symbola"</#if>>${currentStatusIcon}</phrase></cell>
                 <cell border-width="${defaultTableBorderSize}"><phrase>${currentTest.className}&#8203;#${currentTest.methodName}</phrase></cell>
                 <cell border-width="${defaultTableBorderSize}"><#list currentTest.tags as currentTag><phrase class="tag">${currentTag}</phrase></#list></cell>
                 <cell border-width="${defaultTableBorderSize}"><phrase>${currentTest.time}s</phrase></cell>
