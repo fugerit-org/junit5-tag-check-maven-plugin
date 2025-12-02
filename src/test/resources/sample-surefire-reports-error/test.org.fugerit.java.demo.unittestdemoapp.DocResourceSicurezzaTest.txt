@@ -1,0 +1,13 @@
+-------------------------------------------------------------------------------
+Test set: test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.889 s <<< FAILURE! -- in test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest
+test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest.testMarkdown401NoAuthorizationBearer -- Time elapsed: 0.004 s <<< ERROR!
+org.fugerit.java.core.cfg.ConfigRuntimeException: test
+	at test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest.testMarkdown401NoAuthorizationBearer(DocResourceSicurezzaTest.java:60)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at io.quarkus.test.junit.QuarkusTestExtension.runExtensionMethod(QuarkusTestExtension.java:998)
+	at io.quarkus.test.junit.QuarkusTestExtension.interceptTestMethod(QuarkusTestExtension.java:846)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
