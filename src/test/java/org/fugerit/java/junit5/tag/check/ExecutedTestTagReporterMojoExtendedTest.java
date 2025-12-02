@@ -6,6 +6,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.fugerit.java.doc.base.config.DocConfig;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @Order( 2 ) // must run after ExecutedTestTagReporterMojoTest
+@Tag("coverage")
 class ExecutedTestTagReporterMojoExtendedTest {
 
     @Test
