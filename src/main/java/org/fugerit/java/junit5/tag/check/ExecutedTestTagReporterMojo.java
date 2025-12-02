@@ -61,27 +61,29 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
 
         try {
             // Build classpath for test classes
-            URLClassLoader classLoader = createTestClassLoader();
+            try (URLClassLoader classLoader = createTestClassLoader()) {
 
-            // Parse Surefire reports to find executed tests
-            List<ExecutedTest> executedTests = TagSurefireFacade.parseSurefireReports( this.surefireReportsDirectory, this.includeSkipped );
+                // Parse Surefire reports to find executed tests
+                List<ExecutedTest> executedTests = TagSurefireFacade.parseSurefireReports( this.surefireReportsDirectory, this.includeSkipped );
 
-            getLog().info("Found " + executedTests.size() + " executed tests");
+                getLog().info("Found " + executedTests.size() + " executed tests");
 
-            // Extract tags from executed tests
-            Map<ExecutedTest, Set<String>> testTagMap =
-                    TagScanFacade.extractTagsFromExecutedTests(executedTests, classLoader);
+                // Extract tags from executed tests
+                Map<ExecutedTest, Set<String>> testTagMap =
+                        TagScanFacade.extractTagsFromExecutedTests(executedTests, classLoader);
 
-            // Generate report
-            TagReportFacade.generateReport( this.format, this.includeSkipped, this.outputFile, testTagMap);
+                // Generate report
+                TagReportFacade.generateReport( this.format, this.includeSkipped, this.outputFile, testTagMap);
 
-            // Check for required tags
-            if (requiredTags != null && !requiredTags.isEmpty()) {
-                TagCheckFacade.checkRequiredTags( this.requiredTags, this.failOnMissingTag, testTagMap);
+                // Check for required tags
+                if (requiredTags != null && !requiredTags.isEmpty()) {
+                    TagCheckFacade.checkRequiredTags( this.requiredTags, this.failOnMissingTag, testTagMap);
+                }
+
+                getLog().info("Executed Test Tag Report generated: " +
+                        outputFile.getAbsolutePath());
+
             }
-
-            getLog().info("Executed Test Tag Report generated: " +
-                    outputFile.getAbsolutePath());
 
         } catch (Exception e) {
             throw new MojoExecutionException("Error generating executed test tag report", e);
