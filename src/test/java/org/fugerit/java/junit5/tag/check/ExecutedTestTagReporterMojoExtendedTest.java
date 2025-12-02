@@ -19,31 +19,32 @@ class ExecutedTestTagReporterMojoExtendedTest {
 
     @Test
     void testExtended() throws MojoExecutionException {
-        String outputFormat = DocConfig.TYPE_HTML;
-        for ( String id : Arrays.asList( "sample-surefire-reports", "sample-surefire-reports-failed",
-                "sample-surefire-reports-error", "sample-surefire-reports-skipped" ) ) {
-            File reportFile = new File( String.format( "target/test-extended-%s.%s", id, outputFormat ) );
-            log.info( "output file delete : {}", reportFile.delete() );
-            ExecutedTestTagReporterMojo mojo = new ExecutedTestTagReporterMojo() {
-                @Override
-                public void execute() throws MojoExecutionException {
-                    this.format = outputFormat;
-                    this.includeSkipped = Boolean.TRUE;
-                    this.failOnMissingTag = Boolean.FALSE;
-                    this.surefireReportsDirectory = new File( String.format( "src/test/resources/%s", id ) );
-                    this.outputFile = reportFile;
-                    this.project = new MavenProject();
-                    this.requiredTags = Arrays.asList( "helper", "not-found" );
-                    this.includeSkipped = true;
-                    Build build = new Build();
-                    File testClassesDir = new File( "target/test-classes" );
-                    build.setTestOutputDirectory(testClassesDir.getAbsolutePath());
-                    project.setBuild(build);
-                    super.execute();
-                }
-            };
-            mojo.execute();
-            assertTrue(reportFile.exists());
+        for ( String outputFormat : Arrays.asList(  DocConfig.TYPE_TXT, DocConfig.TYPE_HTML ) ) {
+            for ( String id : Arrays.asList( "sample-surefire-reports", "sample-surefire-reports-failed",
+                    "sample-surefire-reports-error", "sample-surefire-reports-skipped" ) ) {
+                File reportFile = new File( String.format( "target/test-extended-%s.%s", id, outputFormat ) );
+                log.info( "output file delete : {}", reportFile.delete() );
+                ExecutedTestTagReporterMojo mojo = new ExecutedTestTagReporterMojo() {
+                    @Override
+                    public void execute() throws MojoExecutionException {
+                        this.format = outputFormat;
+                        this.includeSkipped = Boolean.TRUE;
+                        this.failOnMissingTag = Boolean.FALSE;
+                        this.surefireReportsDirectory = new File( String.format( "src/test/resources/%s", id ) );
+                        this.outputFile = reportFile;
+                        this.project = new MavenProject();
+                        this.requiredTags = Arrays.asList( "helper", "not-found" );
+                        this.includeSkipped = true;
+                        Build build = new Build();
+                        File testClassesDir = new File( "target/test-classes" );
+                        build.setTestOutputDirectory(testClassesDir.getAbsolutePath());
+                        project.setBuild(build);
+                        super.execute();
+                    }
+                };
+                mojo.execute();
+                assertTrue(reportFile.exists());
+            }
         }
     }
 
