@@ -52,13 +52,19 @@ jobs:
           node-version: 20
       - name: Maven version
         run: mvn -v
+
+      - name: Build and analyze
+        if: ${{ env.SONAR_TOKEN != '' }}
+        run: mvn -B clean install org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Pcoverage,full,metadata,sonarfugerit -Dsonar.projectKey=fugerit-org_${{github.event.repository.name}}
         env:
           # Needed to get some information about the pull request, if any
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Build and analyze
-        run: mvn -B clean install org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Pcoverage,full,metadata,sonarfugerit -Dsonar.projectKey=fugerit-org_${{github.event.repository.name}}
+
+      - name: Build (without SonarCloud)
+        if: ${{ env.SONAR_TOKEN == '' }}
+        run: mvn -B clean install -Pcoverage,full,metadata
         env:
           # Needed to get some information about the pull request, if any
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
