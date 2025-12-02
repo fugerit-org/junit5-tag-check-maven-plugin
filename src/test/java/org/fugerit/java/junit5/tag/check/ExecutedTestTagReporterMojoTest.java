@@ -34,7 +34,7 @@ class ExecutedTestTagReporterMojoTest {
     private File outputFile;
 
     @BeforeEach
-    void setUp() throws IOException {
+    void setUp() {
         mojo = new ExecutedTestTagReporterMojo();
         project = new MavenProject();
 
