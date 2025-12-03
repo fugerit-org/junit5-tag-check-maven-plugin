@@ -1,6 +1,7 @@
 package org.fugerit.java.junit5.tag.check.model;
 
 import lombok.extern.slf4j.Slf4j;
+import org.fugerit.java.junit5.tag.check.facade.TagCheckFacade;
 
 import java.util.*;
 
@@ -79,6 +80,10 @@ public class ReportHelper {
 
     public Map<String, TestStats> getTagsStats() {
         return this.tagStats;
+    }
+
+    public TagCheckResult getTagCheckResult() {
+        return TagCheckFacade.checkHelper( this.tagToTests.keySet(), testTagMap );
     }
 
 }

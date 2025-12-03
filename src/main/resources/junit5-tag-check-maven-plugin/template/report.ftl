@@ -64,6 +64,11 @@
             <cell border-width="${defaultTableBorderSize}"><phrase>Errors</phrase></cell>
             <cell border-width="${defaultTableBorderSize}"><phrase <#if docType == 'html'>class="error"<#else>fore-color="${errorForeColor}"</#if>>${report.summaryError}</phrase></cell>
         </row>
+        <row>
+            <#assign tagCheckResult=report.tagCheckResult/>
+            <cell border-width="${defaultTableBorderSize}"><phrase>General result</phrase></cell>
+            <cell border-width="${defaultTableBorderSize}"><phrase <#if tagCheckResult.resultOk >class="pass"<#else>class="error"</#if>>${tagCheckResult.message}</phrase></cell>
+        </row>
     </table>
 
     <h head-level="2" style="bold" space-before="20">Tags Summary</h>
