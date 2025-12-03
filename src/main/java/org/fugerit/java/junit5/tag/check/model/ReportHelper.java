@@ -1,6 +1,7 @@
 package org.fugerit.java.junit5.tag.check.model;
 
 import lombok.extern.slf4j.Slf4j;
+import org.fugerit.java.core.util.ObjectUtils;
 import org.fugerit.java.junit5.tag.check.facade.TagCheckFacade;
 
 import java.util.*;
@@ -16,7 +17,9 @@ public class ReportHelper {
 
     private Map<String, TestStats> tagStats;
 
-    public ReportHelper(Map<ExecutedTest, Set<String>> testTagMap) {
+    private Collection<String> requiredTags;
+
+    public ReportHelper(Map<ExecutedTest, Set<String>> testTagMap, Collection<String> requiredTags) {
         this.testTagMap = testTagMap;
         // report model
         this.reportModel = new ReportModel();
@@ -41,6 +44,8 @@ public class ReportHelper {
                 if (test.isSkipped()) stats.increaseSkipped();
             }
         }
+
+        this.requiredTags = requiredTags;
     }
 
     public Map<ExecutedTest, Set<String>> getTestTagMap() {
@@ -83,7 +88,7 @@ public class ReportHelper {
     }
 
     public TagCheckResult getTagCheckResult() {
-        return TagCheckFacade.checkHelper( this.tagToTests.keySet(), testTagMap );
+        return TagCheckFacade.checkHelper(ObjectUtils.objectWithDefault( this.requiredTags, Collections.emptyList() ), testTagMap );
     }
 
 }

@@ -73,7 +73,7 @@ public class ExecutedTestTagReporterMojo extends AbstractMojo {
                         TagScanFacade.extractTagsFromExecutedTests(executedTests, classLoader);
 
                 // Generate report
-                TagReportFacade.generateReport( this.format, this.includeSkipped, this.outputFile, testTagMap);
+                TagReportFacade.generateReport( this.format, this.includeSkipped, this.outputFile, testTagMap, this.requiredTags );
 
                 // Check for required tags
                 if (requiredTags != null && !requiredTags.isEmpty()) {

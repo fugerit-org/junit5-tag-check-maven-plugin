@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class TagReportFacade {
 
-    public static void generateReport(String format, boolean includeSkipped, File outputFile, Map<ExecutedTest, Set<String>> testTagMap)
+    public static void generateReport(String format, boolean includeSkipped, File outputFile, Map<ExecutedTest, Set<String>> testTagMap, Collection<String> requiredTags)
             throws IOException {
         TagReportFacade facade = new TagReportFacade(format, includeSkipped, outputFile);
-        facade.generateReport(testTagMap);
+        facade.generateReport(testTagMap, requiredTags);
     }
 
     private File outputFile;
@@ -37,11 +37,11 @@ public class TagReportFacade {
         this.outputFile = outputFile;
     }
 
-    private void generateReport(Map<ExecutedTest, Set<String>> testTagMap)
+    private void generateReport(Map<ExecutedTest, Set<String>> testTagMap, Collection<String> requiredTags)
             throws IOException {
         outputFile.getParentFile().mkdirs();
 
-        ReportHelper helper = new ReportHelper( testTagMap );
+        ReportHelper helper = new ReportHelper( testTagMap, requiredTags );
 
         switch (format.toLowerCase()) {
             case DocConfig.TYPE_JSON:
