@@ -60,7 +60,7 @@ Sample reports output
 - [PDF](src/docs/report-samples/executed-test-tag-report.pdf)
 - [XLSX](src/docs/report-samples/executed-test-tag-report.xlsx)
 - [Markdown](src/docs/report-samples/executed-test-tag-report.md)
-- [AsciiDoc](src/docs/report-samples/executed-test-tag-report.asoc)
+- [AsciiDoc](src/docs/report-samples/executed-test-tag-report.adoc)
 
 And here is the Markdown version
 
