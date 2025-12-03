@@ -31,12 +31,14 @@ public class TagCheckFacade {
             if (failOnMissingTag) {
                 throw new MojoExecutionException(message);
             } else {
-                log.warn(message);
+                LogUtils.logWarningInBox( Arrays.asList( message ) );
             }
         } else {
             log.info("All required tags found in executed tests: {}",
                     String.join(", ", requiredTags));
         }
     }
+
+
 
 }

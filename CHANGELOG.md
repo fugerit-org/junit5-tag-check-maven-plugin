@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Better log handling of missing tags
+
+### Fixed
+
+- Wrap URLClassLoader creation in try-with-resources to ensure it's closed and avoid leaks. <https://github.com/fugerit-org/junit5-tag-check-maven-plugin/pull/2>
+
 ## [1.1.0] - 2025-11-28
 
 ### Added

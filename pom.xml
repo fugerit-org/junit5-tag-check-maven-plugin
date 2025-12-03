@@ -61,6 +61,7 @@
     <maven-core-version>3.9.11</maven-core-version>
     <sonar.organization>fugerit-org</sonar.organization>
     <fj-doc-version>8.17.9</fj-doc-version>
+    <common-lang3-version>3.20.0</common-lang3-version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -104,6 +105,11 @@
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-launcher</artifactId>
       <version>${junit-platform-launcher-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${common-lang3-version}</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
