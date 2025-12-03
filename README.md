@@ -4,7 +4,8 @@ A simple plugin to check the presence of JUnit5 test by tags.
 
 [![Keep a Changelog v1.1.0 badge](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735)](CHANGELOG.md) 
 [![Maven Central](https://img.shields.io/maven-central/v/org.fugerit.java/junit5-tag-check-maven-plugin.svg)](https://central.sonatype.com/artifact/org.fugerit.java/junit5-tag-check-maven-plugin)
-[![license](https://img.shields.io/badge/License-Apache%20License%202.0-teal.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](https://opensource.org/licenses/MIT)
+[![code of conduct](https://img.shields.io/badge/conduct-Contributor%20Covenant-purple.svg)](https://github.com/fugerit-org/fj-universe/blob/main/CODE_OF_CONDUCT.md)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_junit5-tag-check-maven-plugin&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=fugerit-org_junit5-tag-check-maven-plugin)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=fugerit-org_junit5-tag-check-maven-plugin&metric=coverage)](https://sonarcloud.io/summary/new_code?id=fugerit-org_junit5-tag-check-maven-plugin)
 
