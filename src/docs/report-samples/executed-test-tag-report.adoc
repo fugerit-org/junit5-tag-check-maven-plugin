@@ -1,0 +1,42 @@
+= Executed Test Tag Report
+fugerit79
+:description: Report
+:lang: en
+:generator: Venus Fugerit Doc over Apache FreeMarker
+:created-by: Venus Fugerit Doc (https://venusdocs.fugerit.org)
+
+== *Executed Test Tag Report* +
+=== *Summary* +
+
+[%header,cols="50,50"]
+|===
+|Metric    |Count    
+|Total Tests    |8    
+|Passed    |8    
+|Failed    |0    
+|Errors    |0    
+|===
+=== *Tags Summary* +
+
+[%header,cols="50,50"]
+|===
+|Tag    |Tests    
+|security    |8    
+|authorized    |2    
+|unauthorized    |5    
+|forbidden    |1    
+|===
+=== *All Executed Tests* +
+
+[%header,cols="15,55,15,15"]
+|===
+|Status    |Test    |Tags    |Time    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testHtmlOkNoAdminRole    |security    authorized    |1.37s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testHtml401NoAuthorizationBearer    |security    unauthorized    |0.009s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testAsciiDocNoAuthorizationBearer    |security    unauthorized    |0.008s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testPdfOkNoAdminRole    |security    authorized    |0.057s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testInvalidJwtPayload    |security    unauthorized    |0.012s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testMarkdown403NoAdminRole    |security    forbidden    |0.007s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testMarkdown401NoAuthorizationBearer    |security    unauthorized    |0.007s    
+|✅    |test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest​#testInvalidJwt    |security    unauthorized    |0.008s    
+|===

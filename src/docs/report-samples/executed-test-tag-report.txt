@@ -1,0 +1,65 @@
+================================================================================
+EXECUTED TEST TAG REPORT
+================================================================================
+
+EXECUTION SUMMARY:
+--------------------------------------------------------------------------------
+  Total Tests:    8
+  Passed:         8
+  Failed:         0
+  Errors:         0
+
+SUMMARY BY TAG:
+--------------------------------------------------------------------------------
+Tag                  | Total |  Pass |  Fail | Error
+--------------------------------------------------------------------------------
+security             |     8 |     8 |     0 |     0
+unauthorized         |     5 |     5 |     0 |     0
+forbidden            |     1 |     1 |     0 |     0
+authorized           |     2 |     2 |     0 |     0
+
+================================================================================
+EXECUTED TESTS BY TAG:
+================================================================================
+
+Tag: security (8 tests)
+--------------------------------------------------------------------------------
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testHtmlOkNoAdminRole (1.498s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testHtml401NoAuthorizationBearer (0.010s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testAsciiDocNoAuthorizationBearer (0.008s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testPdfOkNoAdminRole (0.060s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testInvalidJwtPayload (0.013s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testMarkdown403NoAdminRole (0.008s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testMarkdown401NoAuthorizationBearer (0.005s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testInvalidJwt (0.008s)
+
+Tag: unauthorized (5 tests)
+--------------------------------------------------------------------------------
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testHtml401NoAuthorizationBearer (0.010s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testAsciiDocNoAuthorizationBearer (0.008s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testInvalidJwtPayload (0.013s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testMarkdown401NoAuthorizationBearer (0.005s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testInvalidJwt (0.008s)
+
+Tag: forbidden (1 tests)
+--------------------------------------------------------------------------------
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testMarkdown403NoAdminRole (0.008s)
+
+Tag: authorized (2 tests)
+--------------------------------------------------------------------------------
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testHtmlOkNoAdminRole (1.498s)
+  ✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testPdfOkNoAdminRole (0.060s)
+
+
+================================================================================
+ALL EXECUTED TESTS WITH TAGS:
+================================================================================
+
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testHtmlOkNoAdminRole : [security, authorized]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testHtml401NoAuthorizationBearer : [security, unauthorized]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testAsciiDocNoAuthorizationBearer : [security, unauthorized]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testPdfOkNoAdminRole : [security, authorized]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testInvalidJwtPayload : [security, unauthorized]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testMarkdown403NoAdminRole : [security, forbidden]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testMarkdown401NoAuthorizationBearer : [security, unauthorized]
+✅ test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest#testInvalidJwt : [security, unauthorized]

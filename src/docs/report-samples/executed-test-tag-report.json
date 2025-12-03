@@ -1,0 +1,67 @@
+{
+  "executedTests" : [ {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testHtmlOkNoAdminRole",
+    "time" : 1.238,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "authorized" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testHtml401NoAuthorizationBearer",
+    "time" : 0.01,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "unauthorized" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testAsciiDocNoAuthorizationBearer",
+    "time" : 0.008,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "unauthorized" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testPdfOkNoAdminRole",
+    "time" : 0.06,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "authorized" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testInvalidJwtPayload",
+    "time" : 0.012,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "unauthorized" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testMarkdown403NoAdminRole",
+    "time" : 0.007,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "forbidden" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testMarkdown401NoAuthorizationBearer",
+    "time" : 0.006,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "unauthorized" ]
+  }, {
+    "class" : "test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest",
+    "method" : "testInvalidJwt",
+    "time" : 0.009,
+    "skipped" : false,
+    "failed" : false,
+    "error" : false,
+    "tags" : [ "security", "unauthorized" ]
+  } ]
+}

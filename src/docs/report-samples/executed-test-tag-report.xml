@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<executedTestTagReport>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testHtmlOkNoAdminRole" skipped="false" time="1.62">
+    <tag>security</tag>
+    <tag>authorized</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testHtml401NoAuthorizationBearer" skipped="false" time="0.011">
+    <tag>security</tag>
+    <tag>unauthorized</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testAsciiDocNoAuthorizationBearer" skipped="false" time="0.008">
+    <tag>security</tag>
+    <tag>unauthorized</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testPdfOkNoAdminRole" skipped="false" time="0.065">
+    <tag>security</tag>
+    <tag>authorized</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testInvalidJwtPayload" skipped="false" time="0.014">
+    <tag>security</tag>
+    <tag>unauthorized</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testMarkdown403NoAdminRole" skipped="false" time="0.01">
+    <tag>security</tag>
+    <tag>forbidden</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testMarkdown401NoAuthorizationBearer" skipped="false" time="0.007">
+    <tag>security</tag>
+    <tag>unauthorized</tag>
+  </test>
+  <test class="test.org.fugerit.java.demo.unittestdemoapp.DocResourceSicurezzaTest" error="false" failed="false" method="testInvalidJwt" skipped="false" time="0.01">
+    <tag>security</tag>
+    <tag>unauthorized</tag>
+  </test>
+</executedTestTagReport>
