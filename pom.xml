@@ -145,6 +145,10 @@
       <artifactId>fj-doc-mod-fop</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>fj-doc-mod-poi</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
       <scope>test</scope>

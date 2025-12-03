@@ -33,6 +33,8 @@
         <docHandler id="pdf-fop" info="pdf" type="org.fugerit.java.doc.mod.fop.PdfFopTypeHandler">
             <docHandlerCustomConfig charset="UTF-8" fop-config-mode="classloader" fop-config-classloader-path="junit5-tag-check-maven-plugin/fop-config.xml" fop-suppress-events="1"/>
         </docHandler>
+        <!-- Type handler generating xlsx -->
+        <docHandler id="xlsx-poi" info="xlsx" type="org.fugerit.java.doc.mod.poi.XlsxPoiTypeHandler" unsafe="true" unsafeMode="log-message"/>
     </docHandlerConfig>
 
     <docChain id="shared">

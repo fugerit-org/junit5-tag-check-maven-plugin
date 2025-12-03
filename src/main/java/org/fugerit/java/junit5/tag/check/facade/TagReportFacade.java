@@ -51,7 +51,10 @@ public class TagReportFacade {
                 generateXmlReport( testTagMap );
                 break;
             case DocConfig.TYPE_HTML:
+            case DocConfig.TYPE_XLSX:
             case DocConfig.TYPE_PDF:
+            case DocConfig.TYPE_MD:
+            case DocConfig.TYPE_ADOC:
                 generateFjDocReport( helper, format.toLowerCase() );
                 break;
             default:

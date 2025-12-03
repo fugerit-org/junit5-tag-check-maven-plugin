@@ -36,6 +36,7 @@
             .skip { color: gray; }
             .tag { background-color: #e7f3ff; padding: 2px 8px; border-radius: 3px; margin: 2px; display: inline-block; }
         </info>
+        <info name="excel-table-id">summary-table=Summary;tags-summary-table=Tags Summary;all-tests-table=All Executed Tests</info>
     </metadata>
     <body>
     <h head-level="1" style="bold">${docTitle}</h>
